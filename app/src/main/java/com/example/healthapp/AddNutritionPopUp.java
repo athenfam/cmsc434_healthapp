@@ -15,8 +15,8 @@ import androidx.annotation.Nullable;
 
 
 public class AddNutritionPopUp extends Activity {
-    int caloriesConsumed, fatConsumed,cholesterolConsumed,sodiumConsumed,proteinConsumed;
-    EditText caloriesConsumedInput, fatConsumedInput, cholesterolConsumedInput, sodiumConsumedInput, proteinConsumedInput;
+    int caloriesConsumed, fatConsumed,cholesterolConsumed,sodiumConsumed,carbsConsumed, proteinConsumed;
+    EditText caloriesConsumedInput, fatConsumedInput, cholesterolConsumedInput, sodiumConsumedInput, carbsConsumedInput, proteinConsumedInput;
     Button submitButton;
 
     @Override
@@ -35,6 +35,12 @@ public class AddNutritionPopUp extends Activity {
         getWindow().setLayout((int) (width*0.8), (int)(height*0.8));
 
         caloriesConsumedInput = (EditText) findViewById(R.id.caloriesConsumed);
+        fatConsumedInput = (EditText) findViewById(R.id.fatConsumed);
+        cholesterolConsumedInput = (EditText) findViewById(R.id.cholesterolConsumed);
+        sodiumConsumedInput = (EditText) findViewById(R.id.sodiumConsumed);
+        carbsConsumedInput = (EditText) findViewById(R.id.carbsConsumed);
+        proteinConsumedInput = (EditText) findViewById(R.id.proteinConsumed);
+
         submitButton = (Button) findViewById(R.id.submit);
         submitButton.setOnClickListener(new View.OnClickListener(){
 
@@ -45,14 +51,24 @@ public class AddNutritionPopUp extends Activity {
                     return;
                 }
                 caloriesConsumed = Integer.valueOf(caloriesConsumedInput.getText().toString());
-                fatConsumed = fatConsumedInput==null? 0:Integer.valueOf(caloriesConsumedInput.getText().toString());
+                fatConsumed = fatConsumedInput==null || fatConsumedInput.getText().toString().equals("")? 0:Integer.valueOf(fatConsumedInput.getText().toString());
+                cholesterolConsumed = cholesterolConsumedInput==null || cholesterolConsumedInput.getText().toString().equals("")? 0:Integer.valueOf(cholesterolConsumedInput.getText().toString());
+                sodiumConsumed = sodiumConsumedInput==null || sodiumConsumedInput.getText().toString().equals("")? 0:Integer.valueOf(sodiumConsumedInput.getText().toString());
+                carbsConsumed = carbsConsumedInput==null || carbsConsumedInput.getText().toString().equals("")? 0:Integer.valueOf(carbsConsumedInput.getText().toString());
+                proteinConsumed = proteinConsumedInput==null || proteinConsumedInput.getText().toString().equals("")? 0:Integer.valueOf(proteinConsumedInput.getText().toString());
+
 
 
                 Toast.makeText(getApplicationContext(), caloriesConsumed + " Calories Added", Toast.LENGTH_LONG).show();
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("caloriesAdded", caloriesConsumed);
                 resultIntent.putExtra("fatAdded", fatConsumed);
+                resultIntent.putExtra("cholesterolAdded", cholesterolConsumed);
+                resultIntent.putExtra("sodiumAdded", sodiumConsumed);
+                resultIntent.putExtra("carbsAdded", carbsConsumed);
+                resultIntent.putExtra("proteinAdded", proteinConsumed);
                 setResult(RESULT_OK,resultIntent);
+
 
                 finish();
             }

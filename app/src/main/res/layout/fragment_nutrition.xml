@@ -6,30 +6,65 @@
     android:background="@android:color/holo_blue_light">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nutrition Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/totalCaloriesConsumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.25in"
+            android:text="Total Calories Consumed :" />
+
+        <TextView
+            android:id="@+id/totalFatConsumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.27in"
+            android:text="Total Fat Consumed :" />
+
+        <TextView
+            android:id="@+id/totalCholesterolConsumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.25in"
+            android:text="Total Cholesterol Consumed :" />
+
+        <TextView
+            android:id="@+id/totalSodiumConsumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.25in"
+            android:text="Total Sodium Consumed :" />
+
+        <TextView
+            android:id="@+id/totalCarbohydratesConsumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.25in"
+            android:text="Total Carbohydrates Consumed :" />
+
+        <TextView
+            android:id="@+id/totalProteinConsumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.25in"
+            android:text="Total Protein Consumed :" />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/addData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="2.5in"
+        android:layout_marginBottom="25dp"
         android:text="Add Nutritional Data" />
 
-
-    <TextView
-        android:id="@+id/totalCaloriesConsumed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Calories Consume :"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0.25in"
-        />
 
 </RelativeLayout>

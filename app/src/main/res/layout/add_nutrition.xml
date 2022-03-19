@@ -5,10 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Data"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textFontWeight="700"
+        />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="50dp">
+
 
         <TableLayout
             android:layout_width="match_parent"
@@ -28,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint=" Calories Consumed (cal)"
+                    android:hint=" Calories (cal)"
                     android:inputType="number" />
 
             </TableRow>
@@ -48,7 +63,7 @@
                     android:layout_width="172dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Fat Consumed (g)"
+                    android:hint="Fat (g)"
                     android:inputType="number" />
             </TableRow>
 
@@ -67,7 +82,7 @@
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Cholesterol Consumed (g)"
+                    android:hint="Cholesterol (g)"
                     android:inputType="number" />
             </TableRow>
 
@@ -86,7 +101,7 @@
                     android:layout_width="253dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Sodium Consumed (g)"
+                    android:hint="Sodium (g)"
                     android:inputType="number" />
             </TableRow>
 
@@ -105,7 +120,7 @@
                     android:layout_width="172dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Carbohydrates Consumed (g)"
+                    android:hint="Carbohydrates (g)"
                     android:inputType="number" />
 
             </TableRow>
@@ -126,20 +141,21 @@
                     android:layout_width="172dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Protein Consumed (g)"
+                    android:hint="Protein (g)"
                     android:inputType="number" />
             </TableRow>
         </TableLayout>
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="Submit"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
     </LinearLayout>
 
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </RelativeLayout>
