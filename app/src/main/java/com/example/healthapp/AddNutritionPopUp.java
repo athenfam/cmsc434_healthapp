@@ -15,8 +15,8 @@ import androidx.annotation.Nullable;
 
 
 public class AddNutritionPopUp extends Activity {
-    int caloriesConsumed;
-    EditText caloriesConsumedInput;
+    int caloriesConsumed, fatConsumed,cholesterolConsumed,sodiumConsumed,proteinConsumed;
+    EditText caloriesConsumedInput, fatConsumedInput, cholesterolConsumedInput, sodiumConsumedInput, proteinConsumedInput;
     Button submitButton;
 
     @Override
@@ -45,10 +45,13 @@ public class AddNutritionPopUp extends Activity {
                     return;
                 }
                 caloriesConsumed = Integer.valueOf(caloriesConsumedInput.getText().toString());
+                fatConsumed = fatConsumedInput==null? 0:Integer.valueOf(caloriesConsumedInput.getText().toString());
+
 
                 Toast.makeText(getApplicationContext(), caloriesConsumed + " Calories Added", Toast.LENGTH_LONG).show();
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("caloriesAdded", caloriesConsumed);
+                resultIntent.putExtra("fatAdded", fatConsumed);
                 setResult(RESULT_OK,resultIntent);
 
                 finish();

@@ -11,16 +11,19 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    Fragment home;
+    Fragment exercise;
+    Fragment nutrition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        home = new HomeFragment();
+        exercise = new FitnessFragment();
+        nutrition = new NutritionFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, home).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -31,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (item.getItemId()){
                         case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
+                            selectedFragment = home;
                             break;
                         case R.id.nav_fitness:
-                            selectedFragment = new FitnessFragment();
+                            selectedFragment = exercise;
                             break;
                         case R.id.nav_nutrition:
-                            selectedFragment = new NutritionFragment();
+                            selectedFragment = nutrition;
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

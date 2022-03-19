@@ -50,7 +50,6 @@ public class NutritionFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if(requestCode == 1){
             consumedCalories += data.getIntExtra("caloriesAdded", 0);
             TextView totalCaloriesConsumedTextView = (TextView) getView().findViewById(R.id.totalCaloriesConsumed);
