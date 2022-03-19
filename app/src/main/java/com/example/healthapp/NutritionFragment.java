@@ -34,7 +34,7 @@ public class NutritionFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),AddNutritionPopUp.class));
+                startActivityForResult(new Intent(getActivity(),AddNutritionPopUp.class),1);
                 if(getArguments() != null) {
                     consumedCalories += Integer.valueOf(getArguments().getString("caloriesConsumed"));
                     totalCaloriesConsumedTextView.setText("Total Calories Consumed: " + consumedCalories);
@@ -47,9 +47,14 @@ public class NutritionFragment extends Fragment {
 
     }
 
-    public void updateTotalCaloriesConsumed(Bundle args){
-        consumedCalories += Integer.valueOf(args.getString("caloriesConsumed"));
-        TextView totalCaloriesConsumedTextView = (TextView) getView().findViewById(R.id.totalCaloriesConsumed);
-        totalCaloriesConsumedTextView.setText("Total Calories Consumed: " + consumedCalories);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){
+            consumedCalories += data.getIntExtra("caloriesAdded", 0);
+            TextView totalCaloriesConsumedTextView = (TextView) getView().findViewById(R.id.totalCaloriesConsumed);
+            totalCaloriesConsumedTextView.setText("Total Calories Consumed: " + consumedCalories);
+        }
     }
 }

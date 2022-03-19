@@ -1,6 +1,8 @@
 package com.example.healthapp;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -23,6 +25,7 @@ public class AddNutritionPopUp extends Activity {
 
         setContentView(R.layout.add_nutrition);
 
+
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -43,14 +46,10 @@ public class AddNutritionPopUp extends Activity {
                 }
                 caloriesConsumed = Integer.valueOf(caloriesConsumedInput.getText().toString());
 
-                Toast.makeText(getApplicationContext(), caloriesConsumed + " Calories Added", Toast.LENGTH_SHORT).show();
-
-                Intent intent = getIntent();
-                Bundle bundle = new Bundle();
-                bundle.putString("caloriesConsumed", caloriesConsumedInput.getText().toString());
-
-                //NutritionFragment fragment = (NutritionFragment) getFragmentManager().findFragmentById(R.id.nutritionid);
-                //fragment.updateTotalCaloriesConsumed(bundle);
+                Toast.makeText(getApplicationContext(), caloriesConsumed + " Calories Added", Toast.LENGTH_LONG).show();
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("caloriesAdded", caloriesConsumed);
+                setResult(RESULT_OK,resultIntent);
 
                 finish();
             }
