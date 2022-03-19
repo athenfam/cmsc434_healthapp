@@ -46,4 +46,10 @@ public class NutritionFragment extends Fragment {
         });
 
     }
+
+    public void updateTotalCaloriesConsumed(Bundle args){
+        consumedCalories += Integer.valueOf(args.getString("caloriesConsumed"));
+        TextView totalCaloriesConsumedTextView = (TextView) getView().findViewById(R.id.totalCaloriesConsumed);
+        totalCaloriesConsumedTextView.setText("Total Calories Consumed: " + consumedCalories);
+    }
 }
