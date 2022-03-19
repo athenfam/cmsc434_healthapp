@@ -88,4 +88,12 @@ public class NutritionFragment extends Fragment {
         TextView totalCholesterolConsumedTextView = (TextView) getView().findViewById(R.id.totalCholesterolConsumed);
         totalCholesterolConsumedTextView.setText("Total Cholesterol Consumed: " + nutritionValues.get("cholesterol"));
     }
+
+    public int getTargetCalories(){
+        return targetCalories;
+    }
+
+    public int getNutritionValue(String value){
+        return nutritionValues.get(value);
+    }
 }
