@@ -49,8 +49,8 @@ public class AddNutritionPopUp extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putString("caloriesConsumed", caloriesConsumedInput.getText().toString());
 
-                NutritionFragment fragment = (NutritionFragment) getSupportFragmentManager().findFragmentById(R.id.nutritionid);
-                fragment.updateTotalCaloriesConsumed(bundle);
+                //NutritionFragment fragment = (NutritionFragment) getFragmentManager().findFragmentById(R.id.nutritionid);
+                //fragment.updateTotalCaloriesConsumed(bundle);
 
                 finish();
             }

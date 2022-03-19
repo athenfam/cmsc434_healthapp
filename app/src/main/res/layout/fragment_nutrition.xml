@@ -5,10 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light">
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/nutritionid">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,9 +19,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="3in"
-        android:text="Add Nutritional Data"
-        />
+        android:layout_marginTop="2.5in"
+        android:text="Add Nutritional Data" />
+
 
     <TextView
         android:id="@+id/totalCaloriesConsumed"
@@ -34,5 +31,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0.25in"
         />
-    </fragment>
+
 </RelativeLayout>
