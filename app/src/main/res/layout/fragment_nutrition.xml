@@ -10,49 +10,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/totalCaloriesConsumed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.25in"
+            android:layout_marginTop="15dp"
             android:text="Total Calories Consumed :" />
 
         <TextView
             android:id="@+id/totalFatConsumed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.27in"
             android:text="Total Fat Consumed :" />
 
         <TextView
             android:id="@+id/totalCholesterolConsumed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.25in"
             android:text="Total Cholesterol Consumed :" />
 
         <TextView
             android:id="@+id/totalSodiumConsumed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.25in"
             android:text="Total Sodium Consumed :" />
 
         <TextView
             android:id="@+id/totalCarbohydratesConsumed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.25in"
             android:text="Total Carbohydrates Consumed :" />
 
         <TextView
             android:id="@+id/totalProteinConsumed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.25in"
             android:text="Total Protein Consumed :" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consumed Food/Meals:"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="100dp"
+            android:scrollbars="vertical"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/nutritionScrollable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
 
 
     </LinearLayout>

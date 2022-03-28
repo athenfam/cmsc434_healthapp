@@ -6,28 +6,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class NutritionFragment extends Fragment {
 
-    int targetCalories = 200;
-    int consumedCalories = 0, consumedFat = 0, consumedCholesterol = 0, consumedSodium = 0, consumedCarbohydrates=0, consumedProtein=0;
-    HashMap<String, Integer> nutritionValues;
+    HashMap<String, Integer> totalValues;
+    List<FoodEntry> entries = new ArrayList<>();
 
+    // Assign initial total values to 0 on creation
     public NutritionFragment(){
-        nutritionValues = new HashMap<>();
-        nutritionValues.put("calories",0);
-        nutritionValues.put("fat",0);
-        nutritionValues.put("cholesterol",0);
-        nutritionValues.put("sodium",0);
-        nutritionValues.put("carbs",0);
-        nutritionValues.put("protein",0);
+        totalValues = new HashMap<>();
+        totalValues.put("calories",0);
+        totalValues.put("fat",0);
+        totalValues.put("cholesterol",0);
+        totalValues.put("sodium",0);
+        totalValues.put("carbs",0);
+        totalValues.put("protein",0);
     }
 
     @Nullable
@@ -40,9 +45,19 @@ public class NutritionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Set nutrient values
+        // Display total nutrition values
         displayValues();
 
+        // Display scrollable meal entries
+        // See if there is a way to make scrollable text changes permanent between screen transitions,
+        // more efficient than repopulating each time
+        // maybe something to do with savedinstancestate in MainActivity line 21?
+        int counter = 1;
+        for(FoodEntry e:entries){
+            createScrollEntry(e, counter++);
+        }
+
+        // Button Listener for "ADD NUTRITIONAL DATA"
         Button button = (Button) getView().findViewById(R.id.addData);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,44 +71,76 @@ public class NutritionFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1){
-            nutritionValues.put("calories", nutritionValues.get("calories")+data.getIntExtra("caloriesAdded", 0));
-            nutritionValues.put("fat", nutritionValues.get("fat")+data.getIntExtra("fatAdded", 0));
-            nutritionValues.put("cholesterol", nutritionValues.get("cholesterol")+data.getIntExtra("cholesterolAdded", 0));
-            nutritionValues.put("sodium", nutritionValues.get("sodium")+data.getIntExtra("sodiumAdded", 0));
-            nutritionValues.put("carbs", nutritionValues.get("carbs")+data.getIntExtra("carbsAdded", 0));
-            nutritionValues.put("protein", nutritionValues.get("protein")+data.getIntExtra("proteinAdded", 0));
 
+        // Return entry data after hitting submit
+        if(requestCode == 1){
+            // Create new FoodEntry
+            FoodEntry entry = new FoodEntry(data.getStringExtra("foodName"), data.getIntExtra("caloriesAdded",0));
+            entry.fat = data.getIntExtra("fatAdded", 0);
+            entry.cholesterol = data.getIntExtra("cholesterolAdded", 0);
+            entry.sodium = data.getIntExtra("sodiumAdded", 0);
+            entry.carbs = data.getIntExtra("carbsAdded", 0);
+            entry.protein = data.getIntExtra("proteinAdded", 0);
+            entries.add(entry);
+
+
+            // Add entry to scrollable element
+            createScrollEntry(entry, entries.size());
+
+            // Update total values
+            totalValues.put("calories", totalValues.get("calories")+entry.calories);
+            totalValues.put("fat", totalValues.get("fat")+entry.fat);
+            totalValues.put("cholesterol", totalValues.get("cholesterol")+ entry.cholesterol);
+            totalValues.put("sodium", totalValues.get("sodium")+entry.sodium);
+            totalValues.put("carbs", totalValues.get("carbs")+entry.carbs);
+            totalValues.put("protein", totalValues.get("protein")+entry.protein);
             displayValues();
         }
+    }
+
+    private void createScrollEntry(FoodEntry entry, int entryNum){
+        LinearLayout scrollable = getView().findViewById(R.id.nutritionScrollable);
+        TextView entryScrollable = new TextView(getContext());
+        StringBuilder text = new StringBuilder("Meal #"+entryNum+": "+entry.foodName+"\n\t"+"Calories: "+entry.calories +"\n\t");
+
+        if(entry.fat != 0)
+            text.append("Fat: " + entry.fat + " grams\n\t");
+        if(entry.cholesterol != 0)
+            text.append("Cholesterol: "+entry.cholesterol+" grams\n\t");
+        if(entry.sodium!=0)
+            text.append("Sodium: "+entry.sodium+"mg\n\t");
+        if(entry.carbs!=0)
+            text.append("Carbohydrates: "+entry.carbs+" grams\n\t");
+        if(entry.protein!=0)
+            text.append("Protein: "+entry.protein+" grams\n\t");
+
+        entryScrollable.setText(text);
+        scrollable.addView(entryScrollable);
     }
 
     // Display current nutrition values
     public void displayValues(){
         TextView totalCaloriesConsumedTextView = (TextView) getView().findViewById(R.id.totalCaloriesConsumed);
-        totalCaloriesConsumedTextView.setText("Total Calories Consumed: " + nutritionValues.get("calories"));
+        totalCaloriesConsumedTextView.setText("Total Calories Consumed: " + totalValues.get("calories"));
 
         TextView totalSodiumConsumedTextView = (TextView) getView().findViewById(R.id.totalSodiumConsumed);
-        totalSodiumConsumedTextView.setText("Total Sodium Consumed: " + nutritionValues.get("sodium"));
+        totalSodiumConsumedTextView.setText("Total Sodium Consumed: " + totalValues.get("sodium") +" mg");
 
         TextView totalFatConsumedTextView = (TextView) getView().findViewById(R.id.totalFatConsumed);
-        totalFatConsumedTextView.setText("Total Fat Consumed: " + nutritionValues.get("fat"));
+        totalFatConsumedTextView.setText("Total Fat Consumed: " + totalValues.get("fat")+" grams");
 
         TextView totalProteinConsumedTextView = (TextView) getView().findViewById(R.id.totalProteinConsumed);
-        totalProteinConsumedTextView.setText("Total Protein Consumed: " + nutritionValues.get("protein"));
+        totalProteinConsumedTextView.setText("Total Protein Consumed: " + totalValues.get("protein")+" grams");
 
         TextView totalCarbsConsumedTextView = (TextView) getView().findViewById(R.id.totalCarbohydratesConsumed);
-        totalCarbsConsumedTextView.setText("Total Carbohydrates Consumed: " + nutritionValues.get("carbs"));
+        totalCarbsConsumedTextView.setText("Total Carbohydrates Consumed: " + totalValues.get("carbs")+" grams");
 
         TextView totalCholesterolConsumedTextView = (TextView) getView().findViewById(R.id.totalCholesterolConsumed);
-        totalCholesterolConsumedTextView.setText("Total Cholesterol Consumed: " + nutritionValues.get("cholesterol"));
+        totalCholesterolConsumedTextView.setText("Total Cholesterol Consumed: " + totalValues.get("cholesterol")+" grams");
     }
 
-    public int getTargetCalories(){
-        return targetCalories;
-    }
 
     public int getNutritionValue(String value){
-        return nutritionValues.get(value);
+        return totalValues.get(value);
     }
 }

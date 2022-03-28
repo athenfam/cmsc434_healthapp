@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     Fragment home;
     Fragment exercise;
     Fragment nutrition;
+    Fragment settings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         home = new HomeFragment();
         exercise = new FitnessFragment();
         nutrition = new NutritionFragment();
+        settings = new SettingsFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, home).commit();
     }
 
@@ -41,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_nutrition:
                             selectedFragment = nutrition;
+                            break;
+                        case R.id.nav_settings:
+                            selectedFragment = settings;
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
