@@ -16,57 +16,57 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
-            android:textColor="#000000"
             android:text="Name :"
-            android:textSize="18dp"
-            android:layout_centerInParent="true"
-            />
+            android:id="@+id/nameDisplay"
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/birthdayDisplay"
             android:layout_marginTop="15dp"
-            android:textColor="#000000"
             android:text="Birthday :"
-            android:textSize="18dp"
-            android:layout_centerInParent="true"
-            />
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/heightDisplay"
             android:layout_marginTop="15dp"
-            android:textColor="#000000"
             android:text="Height :"
-            android:textSize="18dp"
-            android:layout_centerInParent="true"
-            />
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
-            android:textColor="#000000"
+            android:id="@+id/currWeightDisplay"
             android:text="Weight :"
-            android:textSize="18dp"
-            android:layout_centerInParent="true"
-            />
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textColor="#000000"
-            android:text="Goal Weight :"
-            android:textSize="18dp"
             android:layout_centerInParent="true"
-            />
+            android:layout_marginTop="15dp"
+            android:id="@+id/goalWeightDisplay"
+            android:text="Goal Weight :"
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/addData"
+        android:id="@+id/changeInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

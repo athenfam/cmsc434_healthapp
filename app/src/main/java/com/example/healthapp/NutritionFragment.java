@@ -2,6 +2,7 @@ package com.example.healthapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class NutritionFragment extends Fragment {
 
     HashMap<String, Integer> totalValues;
     List<FoodEntry> entries = new ArrayList<>();
-
+    private long mLastClickTime = 0;
     // Assign initial total values to 0 on creation
     public NutritionFragment(){
         totalValues = new HashMap<>();
@@ -60,6 +61,11 @@ public class NutritionFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // mis-clicking prevention, using threshold of 1000 ms
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
                 startActivityForResult(new Intent(getActivity(),AddNutritionPopUp.class),1);
             }
         });
@@ -72,6 +78,11 @@ public class NutritionFragment extends Fragment {
 
         // Return entry data after hitting submit
         if(requestCode == 1){
+            // If someone clicks off the popup window, exits here
+            if(data == null){
+                return;
+            }
+
             // Create new FoodEntry
             FoodEntry entry = new FoodEntry(data.getStringExtra("foodName"), data.getIntExtra("caloriesAdded",0));
             entry.fat = data.getIntExtra("fatAdded", 0);

@@ -2,6 +2,7 @@ package com.example.healthapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import java.util.List;
 public class FitnessFragment extends Fragment {
     HashMap<String, Integer> totalValues;
     List<ExerciseEntry> entries = new ArrayList<>();
-
+    private long mLastClickTime = 0;
     // Assign initial total values to 0 on creation
     public FitnessFragment(){
         totalValues = new HashMap<>();
@@ -35,8 +36,6 @@ public class FitnessFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
         // Display total nutrition values
         displayValues();
 
@@ -57,6 +56,11 @@ public class FitnessFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // mis-clicking prevention, using threshold of 1000 ms
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
                 startActivityForResult(new Intent(getActivity(), AddFitnessPopUp.class), 1);
             }
         });
@@ -65,6 +69,10 @@ public class FitnessFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        // If someone clicks off the popup window, exits here
+        if(data == null){
+            return;
+        }
 
         // Return entry data after hitting submit
         if(requestCode == 1){

@@ -30,7 +30,7 @@ public class AddNutritionPopUp extends Activity {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
-        // changet tile of popup
+        // change tile of popup
         setTitle("Add Nutritional Data");
         int width = dm.widthPixels;
         int height = dm.heightPixels;
