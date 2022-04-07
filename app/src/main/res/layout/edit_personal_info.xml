@@ -13,7 +13,6 @@
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="15dp">
 
-
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -26,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="Meal/Food Item: "
+                    android:text="Name: "
                     />
 
                 <EditText
@@ -34,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Meal/Food Item"
+                    android:hint="Name"
                     android:inputType="text" />
 
             </TableRow>
@@ -47,14 +46,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="Calories:" />
+                    android:text="Birthday:" />
 
                 <EditText
                     android:id="@+id/caloriesConsumed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Calories (cal)"
+                    android:hint="Birthday (MM/DD/YYYY)"
                     android:inputType="number" />
 
             </TableRow>
@@ -68,14 +67,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="Fat:" />
+                    android:text="Height:" />
 
                 <EditText
                     android:id="@+id/fatConsumed"
                     android:layout_width="172dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Fat (g)"
+                    android:hint="Height (ft' in)"
                     android:inputType="number" />
             </TableRow>
 
@@ -88,14 +87,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="Cholesterol:" />
+                    android:text="Weight:" />
 
                 <EditText
                     android:id="@+id/cholesterolConsumed"
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Cholesterol (g)"
+                    android:hint="Weight (lbs)"
                     android:inputType="number" />
             </TableRow>
 
@@ -108,56 +107,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="Sodium:" />
+                    android:text="Goal Weight:" />
 
                 <EditText
                     android:id="@+id/sodiumConsumed"
                     android:layout_width="253dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Sodium (g)"
-                    android:inputType="number" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Carbohydrates:" />
-
-                <EditText
-                    android:id="@+id/carbsConsumed"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Carbohydrates (g)"
-                    android:inputType="number" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Protein:" />
-
-                <EditText
-                    android:id="@+id/proteinConsumed"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Protein (g)"
+                    android:hint="Goal Weight (lbs)"
                     android:inputType="number" />
             </TableRow>
         </TableLayout>
@@ -171,8 +128,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:backgroundTint="#097969"
+        android:textColor="#000000"
+        android:backgroundTint="#AFE1AF"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </RelativeLayout>
