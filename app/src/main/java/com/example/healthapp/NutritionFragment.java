@@ -13,10 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 public class NutritionFragment extends Fragment {
@@ -58,7 +56,7 @@ public class NutritionFragment extends Fragment {
         }
 
         // Button Listener for "ADD NUTRITIONAL DATA"
-        Button button = (Button) getView().findViewById(R.id.addData);
+        Button button = (Button) getView().findViewById(R.id.addFoodData);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

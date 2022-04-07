@@ -22,6 +22,9 @@
         <activity android:name=".AddNutritionPopUp"
             android:theme="@style/PopUpTheme"
             ></activity>
+        <activity android:name=".AddFitnessPopUp"
+            android:theme="@style/PopUpTheme"
+            ></activity>
 
     </application>
 

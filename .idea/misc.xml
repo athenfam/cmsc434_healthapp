@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/activity_main.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/add_fitness.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/add_nutrition.xml" value="0.33" />
+        <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_fitness.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_nutrition.xml" value="0.33" />
+        <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_settings.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/Athen Pham/AndroidStudioProjects/cmsc434_healthapp/app/src/main/res/menu/bottom_navigation.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/athen/AndroidStudioProjects/HealthApp/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/athen/AndroidStudioProjects/HealthApp/app/src/main/res/layout/add_nutrition.xml" value="0.1" />
         <entry key="..\:/Users/athen/AndroidStudioProjects/HealthApp/app/src/main/res/layout/fragment_fitness.xml" value="0.21666666666666667" />
@@ -13,10 +18,6 @@
         <entry key="..\:/Users/athen/AndroidStudioProjects/HealthApp/app/src/main/res/layout/fragment_nutrition.xml" value="0.25" />
         <entry key="..\:/Users/athen/AndroidStudioProjects/HealthApp/app/src/main/res/layout/fragment_settings.xml" value="0.16304347826086957" />
         <entry key="..\:/Users/athen/AndroidStudioProjects/HealthApp/app/src/main/res/menu/bottom_navigation.xml" value="0.21666666666666667" />
-        <entry key="..\:/Users/hchen/StudioProjects/cmsc434_healthapp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/hchen/StudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_fitness.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/hchen/StudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/hchen/StudioProjects/cmsc434_healthapp/app/src/main/res/layout/fragment_nutrition.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
