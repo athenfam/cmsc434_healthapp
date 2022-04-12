@@ -3,6 +3,7 @@ package com.example.healthapp;
 import static com.example.healthapp.R.*;
 
 import android.animation.ObjectAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,18 +61,26 @@ public class HomeFragment extends Fragment {
     }
 
     public void getCalorieGoal(){
-        TextView view = getView().findViewById(id.calorieGoal);
-        view.setText("You have eaten "+calories+"/"+calorieGoal+ " calories today!");
         ProgressBar circleCalorie = (ProgressBar) getView().findViewById(R.id.calorie_progress);
 
-        double percent = calories*100/calorieGoal;
-        circleCalorie.setProgress((int)percent);
+        double percent = calories * 100 / calorieGoal;
+        circleCalorie.setProgress((int) percent);
 
+        TextView view = getView().findViewById(id.calorieGoal);
+        view.setText("You completed "+(int)percent+ "% of your daily calorie goal");
+
+        TextView center = getView().findViewById(id.home_calorie);
+        center.setText(calories+"/"+calorieGoal+"cal");
+
+        if(percent>=100){//Highlight green if complete
+            center.setTextColor(Color.GREEN);
+        }
 
         ObjectAnimator animation = ObjectAnimator.ofInt(circleCalorie, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
-        animation.setDuration(3000); // in milliseconds
+        animation.setDuration(1500); // in milliseconds
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
+
 
         TextView quote = getView().findViewById(id.dailyQuote);
         String[] q = getResources().getStringArray(array.dailyQuotes);

@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -30,17 +30,7 @@
             android:id="@+id/calorieGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:text="Calories Consumed: 1340/2000\nYou completed 67% of your daily nutrition goal!"
-            android:textColor="#000000"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/dailyQuote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="230dp"
-            android:text="Daily Quote: Let's get your exercise on!"
+            android:text="You completed 67% of your daily calorie goal!"
             android:textColor="#000000"
             android:textSize="25sp" />
 
@@ -48,14 +38,12 @@
 
     <ProgressBar
         android:id="@+id/calorie_progress"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:indeterminateOnly="false"
         android:max="100"
-        android:progress="80"
-        android:rotation="-90"
-
+        android:progress="0"
         android:progressDrawable="@drawable/circle" />
 
     <TextView
@@ -65,6 +53,17 @@
         android:layout_centerInParent="true"
         android:text="0/2000cal"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/dailyQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:text="Daily Quote: Let's get your exercise on!"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
 
 </RelativeLayout>

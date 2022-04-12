@@ -145,7 +145,7 @@ public class NutritionFragment extends Fragment {
         totalCarbsConsumedTextView.setText("Total Carbohydrates Consumed: " + totalValues.get("carbs")+" grams");
 
         TextView totalCholesterolConsumedTextView = (TextView) getView().findViewById(R.id.totalCholesterolConsumed);
-        totalCholesterolConsumedTextView.setText("Total Cholesterol Consumed: " + totalValues.get("cholesterol")+" grams");
+        totalCholesterolConsumedTextView.setText("Total Cholesterol Consumed: " + totalValues.get("cholesterol")+" mg");
     }
 
 
