@@ -2,10 +2,12 @@ package com.example.healthapp;
 
 import static com.example.healthapp.R.*;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -60,11 +62,16 @@ public class HomeFragment extends Fragment {
     public void getCalorieGoal(){
         TextView view = getView().findViewById(id.calorieGoal);
         view.setText("You have eaten "+calories+"/"+calorieGoal+ " calories today!");
-        ProgressBar circleCalorie = getView().findViewById(R.id.calorie_progress);
-        System.out.println("kalories"+circleCalorie.getProgress());
+        ProgressBar circleCalorie = (ProgressBar) getView().findViewById(R.id.calorie_progress);
+
         double percent = calories*100/calorieGoal;
         circleCalorie.setProgress((int)percent);
-        System.out.println("kalorie"+circleCalorie.getProgress());
+
+
+        ObjectAnimator animation = ObjectAnimator.ofInt(circleCalorie, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
+        animation.setDuration(3000); // in milliseconds
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
 
         TextView quote = getView().findViewById(id.dailyQuote);
         String[] q = getResources().getStringArray(array.dailyQuotes);
