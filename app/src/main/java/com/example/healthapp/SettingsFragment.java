@@ -104,4 +104,5 @@ public class SettingsFragment extends Fragment {
     public int getCalorieGoal(){
         return goalCalorie;
     }
+    public double getWeightGoal(){ return goalWeight;}
 }

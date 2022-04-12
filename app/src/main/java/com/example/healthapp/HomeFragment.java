@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,9 +19,20 @@ import java.util.Date;
 import java.util.RandomAccess;
 
 public class HomeFragment extends Fragment {
+    private int calories = 0;
+    private int calorieGoal = 2000;
+    private double weightGoal;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (getArguments() != null) {
+            this.calories = getArguments().getInt("calories");
+            this.calorieGoal = getArguments().getInt("calorieGoal");
+            this.weightGoal = getArguments().getDouble("weightGoal");
+        }
+
+
         return inflater.inflate(layout.fragment_home, container, false);
     }
 
@@ -47,8 +59,12 @@ public class HomeFragment extends Fragment {
 
     public void getCalorieGoal(){
         TextView view = getView().findViewById(id.calorieGoal);
-        view.setText("You have eaten x/2000 calories today");
-
+        view.setText("You have eaten "+calories+"/"+calorieGoal+ " calories today!");
+        ProgressBar circleCalorie = getView().findViewById(R.id.calorie_progress);
+        System.out.println("kalories"+circleCalorie.getProgress());
+        double percent = calories*100/calorieGoal;
+        circleCalorie.setProgress((int)percent);
+        System.out.println("kalorie"+circleCalorie.getProgress());
 
         TextView quote = getView().findViewById(id.dailyQuote);
         String[] q = getResources().getStringArray(array.dailyQuotes);

@@ -11,10 +11,10 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    Fragment home;
-    Fragment exercise;
-    Fragment nutrition;
-    Fragment settings;
+    HomeFragment home;
+    FitnessFragment exercise;
+    NutritionFragment nutrition;
+    SettingsFragment settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +34,14 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
-
+                    Bundle bundle = new Bundle();
                     switch (item.getItemId()){
                         case R.id.nav_home:
+                            bundle.putInt("calorieGoal", settings.getCalorieGoal());
+                            bundle.putDouble("weightGoal", settings.getWeightGoal());
+                            bundle.putInt("calories", nutrition.getNutritionValue("calories"));
                             selectedFragment = home;
+                            selectedFragment.setArguments(bundle);
                             break;
                         case R.id.nav_fitness:
                             selectedFragment = exercise;
