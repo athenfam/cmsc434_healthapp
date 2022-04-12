@@ -35,7 +35,6 @@ public class HomeFragment extends Fragment {
         getCalorieGoal();
 
         //Need to figure out fragment to fragment data sharing. Right now all of the data is assigned to 4 objects based by tab.
-        // Think about how to implement a dbms, might be easier to do that than figure our fragment-to-fragment data sharing at the moment
         // Also consider how to retain saved data after an app session is finished
     }
 

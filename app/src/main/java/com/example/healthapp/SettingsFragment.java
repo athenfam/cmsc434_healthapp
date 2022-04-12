@@ -13,10 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
 public class SettingsFragment extends Fragment {
     String name;
     int birthday;
     int feet;
+    int goalCalorie;
     double inches, currWeight, goalWeight, bmi;
     private long mLastClickTime = 0;
     SettingsFragment(){
@@ -25,6 +28,7 @@ public class SettingsFragment extends Fragment {
         inches=8;
         currWeight=120;
         goalWeight=130;
+        goalCalorie=2000;
     }
 
     @Nullable
@@ -72,7 +76,7 @@ public class SettingsFragment extends Fragment {
             currWeight = data.getDoubleExtra("currWeight",-1);
             goalWeight = data.getDoubleExtra("goalWeight",-1);
             birthday = data.getIntExtra("birthday",-1);
-
+            goalCalorie = data.getIntExtra("goalCalorie", 2000);
             displayValues();
         }
     }
@@ -92,5 +96,12 @@ public class SettingsFragment extends Fragment {
 
         TextView goalWeightTextView = (TextView) getView().findViewById(R.id.goalWeightDisplay);
         goalWeightTextView.setText("Goal Weight: " + goalWeight + " lbs");
+
+        TextView goalCalorieTextView = (TextView) getView().findViewById(R.id.calorieGoalDisplay);
+        goalCalorieTextView.setText("Daily Calorie Goal: " + goalCalorie + " cal");
+    }
+
+    public int getCalorieGoal(){
+        return goalCalorie;
     }
 }

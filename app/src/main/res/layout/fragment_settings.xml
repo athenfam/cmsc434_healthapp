@@ -63,6 +63,16 @@
             android:textColor="#000000"
             android:textSize="18dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:id="@+id/calorieGoalDisplay"
+            android:text="Daily Calorie Goal :"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
     </LinearLayout>
 
     <Button
@@ -75,6 +85,5 @@
         android:backgroundTint="#f0ead6"
         android:textColor="#000000"
         android:text="Change Personal Info" />
-
 
 </RelativeLayout>

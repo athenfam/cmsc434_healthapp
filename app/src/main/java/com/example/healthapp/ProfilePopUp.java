@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 
 public class ProfilePopUp extends Activity {
     String name;
-    int birthday, feet;
+    int birthday, feet, goalCalorie;
     double inches, currWeight, goalWeight;
-    EditText nameInput, birthdayInput, feetInput, inchesInput, currWeightInput, goalWeightInput;
+    EditText nameInput, birthdayInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput;
     Button submitButton;
 
     @Override
@@ -42,6 +42,7 @@ public class ProfilePopUp extends Activity {
         inchesInput = (EditText) findViewById(R.id.inches);
         currWeightInput = (EditText) findViewById(R.id.currWeight);
         goalWeightInput = (EditText) findViewById(R.id.goalWeight);
+        goalCalorieInput=(EditText) findViewById(R.id.goalCalorie);
 
         submitButton = (Button) findViewById(R.id.save);
         submitButton.setOnClickListener(new View.OnClickListener(){
@@ -99,6 +100,12 @@ public class ProfilePopUp extends Activity {
                     goalWeight=Double.valueOf(goalWeightInput.getText().toString());
                 }
 
+                if(goalCalorieInput.getText().toString().equals("")){
+                    goalCalorie = 2000;
+                } else {
+                    goalCalorie=Integer.valueOf(goalCalorieInput.getText().toString());
+                }
+
                 Toast.makeText(getApplicationContext(), "Profile Changes Saved", Toast.LENGTH_LONG).show();
                 Intent resultIntent = new Intent();
 
@@ -107,6 +114,7 @@ public class ProfilePopUp extends Activity {
                 resultIntent.putExtra("feet", feet);
                 resultIntent.putExtra("currWeight", currWeight);
                 resultIntent.putExtra("goalWeight", goalWeight);
+                resultIntent.putExtra("goalCalorie", goalCalorie);
                 setResult(RESULT_OK,resultIntent);
 
                 finish();

@@ -80,7 +80,7 @@
                         android:id="@+id/feet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="4"
+                        android:ems="3"
                         android:hint="Feet"
                         android:inputType="number" />
 
@@ -95,7 +95,7 @@
                         android:id="@+id/inches"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="4"
+                        android:ems="3"
                         android:hint="Inches"
                         android:inputType="number" />
                     <TextView
@@ -145,6 +145,26 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Goal Weight (lbs)"
+                    android:inputType="number" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily Calorie Goal:"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/goalCalorie"
+                    android:layout_width="253dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Calorie Goal (cal)"
                     android:inputType="number" />
             </TableRow>
         </TableLayout>
