@@ -52,7 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="0/2000cal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+        />
 
     <TextView
         android:id="@+id/dailyQuote"

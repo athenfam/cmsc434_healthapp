@@ -52,12 +52,12 @@ public class AddNutritionPopUp extends Activity {
             public void onClick(View view) {
                 // maybe add clear and cancel button?
                 if(foodNameInput.getText().toString().equals("")){
-                    foodNameInput.setError("Please enter name for Meal/Food Item");
+                    foodNameInput.setError("Please enter Meal/Food Item");
                     foodNameInput.setHintTextColor(getResources().getColor(R.color.red));
                     return;
                 }
                 if(caloriesConsumedInput.getText().toString().equals("")){
-                    caloriesConsumedInput.setError("Please Enter Valid Calories!");
+                    caloriesConsumedInput.setError("Please Enter Calories");
                     caloriesConsumedInput.setHintTextColor(getResources().getColor(R.color.red));
                     return;
                 }

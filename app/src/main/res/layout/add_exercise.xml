@@ -9,32 +9,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:text="Main Data (Required)"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle" />
+
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
                     android:text="Exercise: "
-                    />
+                    android:textColor="#000000" />
 
                 <EditText
-                    android:id="@+id/foodName"
+                    android:id="@+id/exerciseName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Exercise"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14dp" />
 
             </TableRow>
 
@@ -45,16 +49,43 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Calories Burned:" />
+                    android:text="Calories Burned:"
+                    android:textColor="#000000" />
 
                 <EditText
-                    android:id="@+id/caloriesConsumed"
+                    android:id="@+id/caloriesBurned"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Calories Burned (cal)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp" />
+
+            </TableRow>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Additional Data (Optional)"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comments:"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/exercise_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Comments"
+                    android:inputType="text"
+                    android:textSize="14dp" />
 
             </TableRow>
         </TableLayout>

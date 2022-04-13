@@ -14,8 +14,8 @@ import androidx.annotation.Nullable;
 
 public class AddFitnessPopUp extends Activity {
     int caloriesBurned;
-    String exerciseName;
-    EditText exerciseNameInput, caloriesBurnedInput;
+    String exerciseName, exerciseComment;
+    EditText exerciseNameInput, caloriesBurnedInput, exerciseCommentInput;
     Button submitButton;
 
     @Override
@@ -23,13 +23,12 @@ public class AddFitnessPopUp extends Activity {
         super.onCreate(savedInstanceState);
         
 
-        setContentView(R.layout.add_fitness);
-
+        setContentView(R.layout.add_exercise);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
-        // changet tile of popup
+        // change title of popup
         setTitle("Add Exercise Data");
         int width = dm.widthPixels;
         int height = dm.heightPixels;
@@ -38,6 +37,7 @@ public class AddFitnessPopUp extends Activity {
 
         exerciseNameInput = (EditText) findViewById(R.id.exerciseName);
         caloriesBurnedInput = (EditText) findViewById(R.id.caloriesBurned);
+        exerciseCommentInput = (EditText) findViewById(R.id.exercise_comments);
 
         submitButton = (Button) findViewById(R.id.submit);
         submitButton.setOnClickListener(new View.OnClickListener(){
@@ -46,7 +46,7 @@ public class AddFitnessPopUp extends Activity {
             public void onClick(View view) {
                 // maybe add clear and cancel button?
                 if(exerciseNameInput.getText().toString().equals("")){
-                    exerciseNameInput.setError("Please enter name for Exercise");
+                    exerciseNameInput.setError("Please enter Exercise");
                     exerciseNameInput.setHintTextColor(getResources().getColor(R.color.red));
                     return;
                 }
@@ -57,12 +57,16 @@ public class AddFitnessPopUp extends Activity {
                 }
                 exerciseName = exerciseNameInput.getText().toString();
                 caloriesBurned = Integer.valueOf(caloriesBurnedInput.getText().toString());
+                exerciseComment = exerciseCommentInput.getText().toString();
 
                 Toast.makeText(getApplicationContext(), "Burned " + caloriesBurned + " Calories", Toast.LENGTH_LONG).show();
                 Intent resultIntent = new Intent();
 
+
                 resultIntent.putExtra("caloriesBurned", caloriesBurned);
                 resultIntent.putExtra("exerciseName", exerciseName);
+                resultIntent.putExtra("comment",exerciseComment);
+
                 setResult(RESULT_OK,resultIntent);
 
 

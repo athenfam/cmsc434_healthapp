@@ -9,30 +9,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
 
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <TextView
+                android:text="Main Data (Required)"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+
+                />
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
                     android:text="Meal/Food Item: "
-                    />
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/foodName"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="39dp"
+                    android:textSize="14dp"
                     android:ems="10"
                     android:hint="Meal/Food Item"
                     android:inputType="text" />
@@ -46,18 +54,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Calories:" />
+                    android:text="Calories:"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/caloriesConsumed"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="39dp"
                     android:ems="10"
                     android:hint="Calories (cal)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp"/>
 
             </TableRow>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Additional Data (Optional)"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -67,16 +82,17 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Fat:" />
+                    android:text="Fat:"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/fatConsumed"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
                     android:ems="10"
                     android:hint="Fat (g)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp"/>
             </TableRow>
 
             <TableRow
@@ -87,16 +103,17 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Cholesterol:" />
+                    android:text="Cholesterol:"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/cholesterolConsumed"
-                    android:layout_width="149dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
                     android:ems="10"
                     android:hint="Cholesterol (g)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp"/>
             </TableRow>
 
             <TableRow
@@ -107,16 +124,17 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Sodium:" />
+                    android:text="Sodium:"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/sodiumConsumed"
-                    android:layout_width="253dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
                     android:ems="10"
                     android:hint="Sodium (g)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp"/>
             </TableRow>
 
             <TableRow
@@ -127,16 +145,17 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Carbohydrates:" />
+                    android:text="Carbohydrates:"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/carbsConsumed"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
                     android:ems="10"
                     android:hint="Carbohydrates (g)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp"/>
 
             </TableRow>
 
@@ -149,16 +168,17 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Protein:" />
+                    android:text="Protein:"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/proteinConsumed"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
                     android:ems="10"
                     android:hint="Protein (g)"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="14dp"/>
             </TableRow>
         </TableLayout>
 

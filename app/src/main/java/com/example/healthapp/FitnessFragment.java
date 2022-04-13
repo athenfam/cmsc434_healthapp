@@ -77,7 +77,7 @@ public class FitnessFragment extends Fragment {
         // Return entry data after hitting submit
         if(requestCode == 1){
             // Create new ExerciseEntry
-            ExerciseEntry entry = new ExerciseEntry(data.getStringExtra("exerciseName"), data.getIntExtra("caloriesBurned",0));
+            ExerciseEntry entry = new ExerciseEntry(data.getStringExtra("exerciseName"), data.getIntExtra("caloriesBurned",0), data.getStringExtra("comment"));
             entries.add(entry);
 
             // Add entry to scrollable element
@@ -93,6 +93,9 @@ public class FitnessFragment extends Fragment {
         LinearLayout scrollable = getView().findViewById(R.id.fitnessScrollable);
         TextView entryScrollable = new TextView(getContext());
         StringBuilder text = new StringBuilder("Exercise #"+entryNum+": "+entry.exerciseName+"\n\t"+"Calories: "+entry.calories +"\n\t");
+        if(!entry.comments.equals("")){
+            text.append("Comments:" + entry.comments +"\n\t");
+        }
 
         entryScrollable.setText(text);
         scrollable.addView(entryScrollable);
