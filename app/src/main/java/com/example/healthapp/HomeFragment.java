@@ -62,6 +62,7 @@ public class HomeFragment extends Fragment {
         // Set current date
         setDate(getView().findViewById(id.date));
 
+
         TextView greeting = (TextView) getView().findViewById(id.greeting);
         greeting.setText("Hello "+name+"!");
 
@@ -105,6 +106,11 @@ public class HomeFragment extends Fragment {
         SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d yyyy");
         String date = formatter.format(today);
         view.setText(date);
+
+        formatter = new SimpleDateFormat("MM/dd/yyyy");
+        date=formatter.format(today);
+        TextView circle_date = (TextView) getView().findViewById(id.circle_date);
+        circle_date.setText(date);
     }
 
     public void getCalorieGoal(){

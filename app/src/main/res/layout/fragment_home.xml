@@ -98,6 +98,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
+        android:id="@+id/circle_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="125dp"
+        android:text="Date Here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
         android:id="@+id/dailyQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
