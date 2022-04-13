@@ -119,8 +119,9 @@ public class HomeFragment extends Fragment {
         TextView center = getView().findViewById(id.home_calorie);
         center.setText(calories+"/"+calorieGoal+"cal consumed");
         if(percent>=100){//Highlight green if complete
-            center.setTextColor(Color.GREEN);
             metCalorieGoal = true;
+            ImageView checkmark = (ImageView) getView().findViewById(id.checkmark1);
+            checkmark.setVisibility(View.VISIBLE);
         }
         ObjectAnimator animation = ObjectAnimator.ofInt(circleCalorie, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
         animation.setDuration(1500); // in milliseconds
@@ -132,19 +133,14 @@ public class HomeFragment extends Fragment {
         TextView center2 = getView().findViewById(id.home_calorie_burned);
         center2.setText(burnedCalories+"/"+calorieBurnedGoal+"cal burned");
         if(percent>=100){//Highlight green if complete
-            center2.setTextColor(Color.GREEN);
             metCalorieBurnedGoal = true;
+            ImageView checkmark = (ImageView) getView().findViewById(id.checkmark2);
+            checkmark.setVisibility(View.VISIBLE);
         }
         ObjectAnimator animation2 = ObjectAnimator.ofInt(circleCalorieBurned, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
         animation2.setDuration(1500); // in milliseconds
         animation2.setInterpolator(new DecelerateInterpolator());
         animation2.start();
-
-
-        if(metCalorieGoal && metCalorieBurnedGoal){
-            ImageView checkmark = (ImageView) getView().findViewById(id.checkmark);
-            checkmark.setVisibility(View.VISIBLE);
-        }
 
 
         TextView quote = getView().findViewById(id.dailyQuote);
