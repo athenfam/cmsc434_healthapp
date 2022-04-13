@@ -106,4 +106,8 @@ public class FitnessFragment extends Fragment {
         TextView totalCaloriesBurnedTextView = (TextView) getView().findViewById(R.id.totalCaloriesBurned);
         totalCaloriesBurnedTextView.setText("Total Calories Burned: " + totalValues.get("calories"));
     }
+
+    public int getCaloriesBurned(){
+        return totalValues.get("calories");
+    }
 }

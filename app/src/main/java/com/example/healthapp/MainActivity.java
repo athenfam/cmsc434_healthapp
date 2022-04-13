@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
                             bundle.putInt("calorieGoal", settings.getCalorieGoal());
                             bundle.putDouble("weightGoal", settings.getWeightGoal());
                             bundle.putInt("calories", nutrition.getNutritionValue("calories"));
-
+                            bundle.putString("name",settings.getName());
+                            bundle.putInt("calorieBurned", exercise.getCaloriesBurned());
+                            bundle.putInt("calorieBurnedGoal", settings.getCalorieBurnedGoal());
                             selectedFragment = home;
                             selectedFragment.setArguments(bundle);
                             break;

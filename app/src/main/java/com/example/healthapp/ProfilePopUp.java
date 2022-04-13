@@ -17,9 +17,9 @@ import androidx.annotation.Nullable;
 
 public class ProfilePopUp extends Activity {
     String name;
-    int birthday, feet, goalCalorie;
+    int birthday, feet, goalCalorie,goalCalorieBurned;
     double inches, currWeight, goalWeight;
-    EditText nameInput, birthdayInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput;
+    EditText nameInput, birthdayInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput, goalCalorieBurnedInput;
     Button submitButton;
 
     @Override
@@ -46,6 +46,7 @@ public class ProfilePopUp extends Activity {
         currWeightInput = (EditText) findViewById(R.id.currWeight);
         goalWeightInput = (EditText) findViewById(R.id.goalWeight);
         goalCalorieInput=(EditText) findViewById(R.id.goalCalorie);
+        goalCalorieBurnedInput=(EditText) findViewById(R.id.goalCalorieBurned);
 
         submitButton = (Button) findViewById(R.id.save);
         submitButton.setOnClickListener(new View.OnClickListener(){
@@ -109,6 +110,12 @@ public class ProfilePopUp extends Activity {
                     goalCalorie=Integer.valueOf(goalCalorieInput.getText().toString());
                 }
 
+                if(goalCalorieBurnedInput.getText().toString().equals("")){
+                    goalCalorie = 500;
+                } else {
+                    goalCalorieBurned=Integer.valueOf(goalCalorieBurnedInput.getText().toString());
+                }
+
                 Toast.makeText(getApplicationContext(), "Profile Changes Saved", Toast.LENGTH_LONG).show();
                 Intent resultIntent = new Intent();
 
@@ -118,6 +125,7 @@ public class ProfilePopUp extends Activity {
                 resultIntent.putExtra("currWeight", currWeight);
                 resultIntent.putExtra("goalWeight", goalWeight);
                 resultIntent.putExtra("goalCalorie", goalCalorie);
+                resultIntent.putExtra("goalCalorieBurned",goalCalorieBurned);
                 setResult(RESULT_OK,resultIntent);
 
                 finish();

@@ -46,15 +46,36 @@
         android:progress="0"
         android:progressDrawable="@drawable/circle" />
 
+    <ProgressBar
+        android:id="@+id/calorie_burned_progress"
+        android:layout_width="183dp"
+        android:layout_height="183dp"
+        android:layout_centerInParent="true"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progress="0"
+
+        android:progressDrawable="@drawable/circle_exercise" />
+
     <TextView
         android:id="@+id/home_calorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="0/2000cal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="125dp"
+        android:text="0cal Consumed"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        />
+    <TextView
+        android:id="@+id/home_calorie_burned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:text="0cal Burned"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
         android:id="@+id/dailyQuote"

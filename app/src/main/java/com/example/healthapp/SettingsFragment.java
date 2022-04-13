@@ -19,7 +19,7 @@ public class SettingsFragment extends Fragment {
     String name;
     int birthday;
     int feet;
-    int goalCalorie;
+    int goalCalorie, goalCalorieBurned;
     double inches, currWeight, goalWeight, bmi;
     private long mLastClickTime = 0;
     SettingsFragment(){
@@ -29,6 +29,7 @@ public class SettingsFragment extends Fragment {
         currWeight=120;
         goalWeight=130;
         goalCalorie=2000;
+        goalCalorieBurned=500;
     }
 
     @Nullable
@@ -77,6 +78,7 @@ public class SettingsFragment extends Fragment {
             goalWeight = data.getDoubleExtra("goalWeight",-1);
             birthday = data.getIntExtra("birthday",-1);
             goalCalorie = data.getIntExtra("goalCalorie", 2000);
+            goalCalorieBurned = data.getIntExtra("goalCalorieBurned",500);
             displayValues();
         }
     }
@@ -99,10 +101,15 @@ public class SettingsFragment extends Fragment {
 
         TextView goalCalorieTextView = (TextView) getView().findViewById(R.id.calorieGoalDisplay);
         goalCalorieTextView.setText("Daily Calorie Goal: " + goalCalorie + " cal");
+
+        TextView goalCalorieBurnedTextView = (TextView) getView().findViewById(R.id.calorieBurnedGoalDisplay);
+        goalCalorieTextView.setText("Daily Calorie Burned From Exercise: " + goalCalorieBurned + " cal");
     }
 
     public int getCalorieGoal(){
         return goalCalorie;
     }
     public double getWeightGoal(){ return goalWeight;}
+    public String getName(){return name;}
+    public int getCalorieBurnedGoal(){return goalCalorieBurned;}
 }

@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,6 +27,9 @@ public class HomeFragment extends Fragment {
     private int calories = 0;
     private int calorieGoal = 2000;
     private double weightGoal;
+    private String name;
+    private int burnedCalories = 0;
+    private int calorieBurnedGoal = 500;
 
     @Nullable
     @Override
@@ -33,6 +38,9 @@ public class HomeFragment extends Fragment {
             this.calories = getArguments().getInt("calories");
             this.calorieGoal = getArguments().getInt("calorieGoal");
             this.weightGoal = getArguments().getDouble("weightGoal");
+            this.name = getArguments().getString("name");
+            this.burnedCalories = getArguments().getInt("calorieBurned");
+            this.calorieBurnedGoal = getArguments().getInt("calorieBurnedGoal");
         }
 
 
@@ -45,6 +53,9 @@ public class HomeFragment extends Fragment {
 
         // Set current date
         setDate(getView().findViewById(id.date));
+
+        TextView greeting = (TextView) getView().findViewById(id.greeting);
+        greeting.setText("Hello "+name+"!");
 
         // Set updated calorie progression
         getCalorieGoal();
@@ -62,24 +73,39 @@ public class HomeFragment extends Fragment {
 
     public void getCalorieGoal(){
         ProgressBar circleCalorie = (ProgressBar) getView().findViewById(R.id.calorie_progress);
+        ProgressBar circleCalorieBurned = (ProgressBar) getView().findViewById(id.calorie_burned_progress);
+
 
         double percent = calories * 100 / calorieGoal;
         circleCalorie.setProgress((int) percent);
 
+        // Calorie consumed progress
         TextView view = getView().findViewById(id.calorieGoal);
         view.setText("You completed "+(int)percent+ "% of your daily calorie goal");
-
         TextView center = getView().findViewById(id.home_calorie);
         center.setText(calories+"/"+calorieGoal+"cal");
-
         if(percent>=100){//Highlight green if complete
             center.setTextColor(Color.GREEN);
         }
-
         ObjectAnimator animation = ObjectAnimator.ofInt(circleCalorie, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
         animation.setDuration(1500); // in milliseconds
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
+
+        // Calorie burned progress
+        percent = burnedCalories*100/calorieBurnedGoal;
+        TextView center2 = getView().findViewById(id.home_calorie_burned);
+        center2.setText(burnedCalories+"/"+calorieBurnedGoal+"cal burned");
+        if(percent>=100){//Highlight green if complete
+            center2.setTextColor(Color.GREEN);
+        }
+        ObjectAnimator animation2 = ObjectAnimator.ofInt(circleCalorieBurned, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
+        animation2.setDuration(1500); // in milliseconds
+        animation2.setInterpolator(new DecelerateInterpolator());
+        animation2.start();
+
+
+
 
 
         TextView quote = getView().findViewById(id.dailyQuote);
