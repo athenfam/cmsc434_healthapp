@@ -4,6 +4,7 @@ import static com.example.healthapp.R.*;
 
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,7 +82,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), // <- Line changed
                         "Previous day's data appears",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -93,7 +94,7 @@ public class HomeFragment extends Fragment {
                 if(today) {
                     Toast.makeText(v.getContext(),
                             "No data for the next day",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -116,7 +117,7 @@ public class HomeFragment extends Fragment {
 
         // Calorie consumed progress
         TextView center = getView().findViewById(id.home_calorie);
-        center.setText(calories+"/"+calorieGoal+"cal");
+        center.setText(calories+"/"+calorieGoal+"cal consumed");
         if(percent>=100){//Highlight green if complete
             center.setTextColor(Color.GREEN);
             metCalorieGoal = true;
@@ -140,7 +141,10 @@ public class HomeFragment extends Fragment {
         animation2.start();
 
 
-
+        if(metCalorieGoal && metCalorieBurnedGoal){
+            ImageView checkmark = (ImageView) getView().findViewById(id.checkmark);
+            checkmark.setVisibility(View.VISIBLE);
+        }
 
 
         TextView quote = getView().findViewById(id.dailyQuote);
