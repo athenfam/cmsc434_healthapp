@@ -129,6 +129,7 @@ public class NutritionFragment extends Fragment {
             text.append("\n\tProtein: "+entry.protein+" grams");
 
         entryScrollable.setText(text);
+        entryScrollable.setTextColor(Color.BLACK);
         entryScrollable.setPadding(10,10,10,10);
         //scrollable.addView(entryScrollable);
 

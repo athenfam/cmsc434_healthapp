@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Health App</string>
+    <string name="app_name">Fitverse</string>
 
     <string-array name="dailyQuotes">
         <item>You miss 100% of the shots you don\'t take!</item>
