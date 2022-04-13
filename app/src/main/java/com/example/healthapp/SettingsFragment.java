@@ -100,16 +100,17 @@ public class SettingsFragment extends Fragment {
         goalWeightTextView.setText("Goal Weight: " + goalWeight + " lbs");
 
         TextView goalCalorieTextView = (TextView) getView().findViewById(R.id.calorieGoalDisplay);
-        goalCalorieTextView.setText("Daily Calorie Goal: " + goalCalorie + " cal");
+        goalCalorieTextView.setText("Daily Calorie Intake Goal: " + goalCalorie + " cal");
 
         TextView goalCalorieBurnedTextView = (TextView) getView().findViewById(R.id.calorieBurnedGoalDisplay);
-        goalCalorieTextView.setText("Daily Calorie Burned From Exercise: " + goalCalorieBurned + " cal");
+        goalCalorieBurnedTextView.setText("Daily Calorie Burned From Exercise: " + goalCalorieBurned + " cal");
     }
 
     public int getCalorieGoal(){
         return goalCalorie;
     }
-    public double getWeightGoal(){ return goalWeight;}
     public String getName(){return name;}
     public int getCalorieBurnedGoal(){return goalCalorieBurned;}
+    public double getCurrWeight(){return currWeight;}
+    public double getGoalWeight(){return goalWeight;}
 }

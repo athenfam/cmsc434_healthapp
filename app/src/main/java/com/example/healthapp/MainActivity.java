@@ -38,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()){
                         case R.id.nav_home:
                             bundle.putInt("calorieGoal", settings.getCalorieGoal());
-                            bundle.putDouble("weightGoal", settings.getWeightGoal());
                             bundle.putInt("calories", nutrition.getNutritionValue("calories"));
                             bundle.putString("name",settings.getName());
                             bundle.putInt("calorieBurned", exercise.getCaloriesBurned());
                             bundle.putInt("calorieBurnedGoal", settings.getCalorieBurnedGoal());
+                            bundle.putDouble("currWeight", settings.getCurrWeight());
+                            bundle.putDouble("goalWeight", settings.getGoalWeight());
                             selectedFragment = home;
                             selectedFragment.setArguments(bundle);
                             break;

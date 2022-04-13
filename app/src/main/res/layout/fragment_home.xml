@@ -27,14 +27,34 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/calorieGoal"
+            android:id="@+id/weightGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You completed 67% of your daily calorie goal!"
+            android:text="You are x lbs. from your weight goal!"
             android:textColor="#000000"
             android:textSize="25sp" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/left"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/right"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        />
 
     <ProgressBar
         android:id="@+id/calorie_progress"

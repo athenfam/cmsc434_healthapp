@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,21 +28,27 @@ import java.util.RandomAccess;
 public class HomeFragment extends Fragment {
     private int calories = 0;
     private int calorieGoal = 2000;
-    private double weightGoal;
+    private double weightGoal = 120;
     private String name;
     private int burnedCalories = 0;
     private int calorieBurnedGoal = 500;
+    private double currWeight=0;
+    private boolean today = true;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        System.out.println("this happens");
         if (getArguments() != null) {
+            System.out.println("values no updated");
             this.calories = getArguments().getInt("calories");
             this.calorieGoal = getArguments().getInt("calorieGoal");
-            this.weightGoal = getArguments().getDouble("weightGoal");
+            this.weightGoal = getArguments().getDouble("goalWeight");
             this.name = getArguments().getString("name");
             this.burnedCalories = getArguments().getInt("calorieBurned");
             this.calorieBurnedGoal = getArguments().getInt("calorieBurnedGoal");
+            this.currWeight=getArguments().getDouble("currWeight");
+
         }
 
 
@@ -60,8 +68,36 @@ public class HomeFragment extends Fragment {
         // Set updated calorie progression
         getCalorieGoal();
 
+        //Update Weight Goal progression
+        getWeightGoal();
+
         //Need to figure out fragment to fragment data sharing. Right now all of the data is assigned to 4 objects based by tab.
         // Also consider how to retain saved data after an app session is finished
+
+
+        //Click left
+        ImageView left = (ImageView) getView().findViewById(R.id.left);
+        left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), // <- Line changed
+                        "The favorite list would appear on clicking this icon",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //Click right
+        ImageView right = (ImageView) getView().findViewById(R.id.right);
+        right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(today) {
+                    Toast.makeText(v.getContext(),
+                            "No data for the next day",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     public void setDate (TextView view){
@@ -80,8 +116,6 @@ public class HomeFragment extends Fragment {
         circleCalorie.setProgress((int) percent);
 
         // Calorie consumed progress
-        TextView view = getView().findViewById(id.calorieGoal);
-        view.setText("You completed "+(int)percent+ "% of your daily calorie goal");
         TextView center = getView().findViewById(id.home_calorie);
         center.setText(calories+"/"+calorieGoal+"cal");
         if(percent>=100){//Highlight green if complete
@@ -112,5 +146,10 @@ public class HomeFragment extends Fragment {
         String[] q = getResources().getStringArray(array.dailyQuotes);
         // Randomly picks a quote everytime the home page is selected
         quote.setText("Daily Quote: "+q[(int)(Math.random()*q.length)]);
+    }
+
+    public void getWeightGoal(){
+        TextView view = getView().findViewById(id.weightGoal);
+        view.setText("You are "+Math.abs(currWeight-weightGoal)+"lbs from your weight goal of "+weightGoal+"lbs!");
     }
 }

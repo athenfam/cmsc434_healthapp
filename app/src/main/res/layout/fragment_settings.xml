@@ -14,72 +14,72 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/nameDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
             android:text="Name :"
-            android:id="@+id/nameDisplay"
             android:textColor="#000000"
             android:textSize="18dp" />
 
 
         <TextView
+            android:id="@+id/birthdayDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:id="@+id/birthdayDisplay"
             android:layout_marginTop="15dp"
             android:text="Birthday :"
             android:textColor="#000000"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/heightDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:id="@+id/heightDisplay"
             android:layout_marginTop="15dp"
             android:text="Height :"
             android:textColor="#000000"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/currWeightDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
-            android:id="@+id/currWeightDisplay"
             android:text="Weight :"
             android:textColor="#000000"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/goalWeightDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
-            android:id="@+id/goalWeightDisplay"
             android:text="Goal Weight :"
             android:textColor="#000000"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/calorieGoalDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
-            android:id="@+id/calorieGoalDisplay"
             android:text="Daily Calorie Intake Goal :"
             android:textColor="#000000"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/calorieBurnedGoalDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
-            android:id="@+id/calorieBurnedGoalDisplay"
             android:text="Daily Calories Burned From Exercise :"
             android:textColor="#000000"
             android:textSize="18dp" />
