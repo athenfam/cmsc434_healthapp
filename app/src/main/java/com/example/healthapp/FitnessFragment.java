@@ -94,12 +94,13 @@ public class FitnessFragment extends Fragment {
     private void createScrollEntry(ExerciseEntry entry, int entryNum){
         LinearLayout scrollable = getView().findViewById(R.id.fitnessScrollable);
         TextView entryScrollable = new TextView(getContext());
-        StringBuilder text = new StringBuilder("Exercise #"+entryNum+": "+entry.exerciseName+"\n\t"+"Calories: "+entry.calories +"\n\t");
+        StringBuilder text = new StringBuilder("Exercise #"+entryNum+": "+entry.exerciseName+"\n\t"+"Calories: "+entry.calories);
         if(!entry.comments.equals("")){
-            text.append("Exercise Details:" + entry.comments +"\n\t");
+            text.append("\n\tExercise Details:" + entry.comments);
         }
 
         entryScrollable.setText(text);
+        entryScrollable.setPadding(10,10,10,10);
         //scrollable.addView(entryScrollable);
 
         CardView cardScrollable = new CardView(getContext());
