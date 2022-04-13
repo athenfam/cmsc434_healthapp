@@ -17,7 +17,7 @@ import org.w3c.dom.Text;
 
 public class SettingsFragment extends Fragment {
     String name;
-    int birthday;
+    int age;
     int feet;
     int goalCalorie, goalCalorieBurned;
     String gender;
@@ -32,7 +32,7 @@ public class SettingsFragment extends Fragment {
         goalWeight=145;
         goalCalorie=2500;
         goalCalorieBurned=800;
-        birthday=110120;
+        age=21;
     }
 
     @Nullable
@@ -79,7 +79,7 @@ public class SettingsFragment extends Fragment {
             inches = data.getDoubleExtra("inches",0);
             currWeight = data.getDoubleExtra("currWeight",-1);
             goalWeight = data.getDoubleExtra("goalWeight",-1);
-            birthday = data.getIntExtra("birthday",-1);
+            age = data.getIntExtra("age",-1);
             goalCalorie = data.getIntExtra("goalCalorie", 2000);
             goalCalorieBurned = data.getIntExtra("goalCalorieBurned",500);
             gender = data.getStringExtra("gender");
@@ -97,8 +97,8 @@ public class SettingsFragment extends Fragment {
         TextView genderTextView = (TextView) getView().findViewById(R.id.genderDisplay);
         genderTextView.setText("Gender: "+gender);
 
-        TextView birthdayTextView = (TextView) getView().findViewById(R.id.birthdayDisplay);
-        birthdayTextView.setText("Birthday: " + birthday);
+        TextView ageTextView = (TextView) getView().findViewById(R.id.ageDisplay);
+        ageTextView.setText("Age: " + age);
 
         TextView currWeightTextView = (TextView) getView().findViewById(R.id.currWeightDisplay);
         currWeightTextView.setText("Weight: " + currWeight + " lbs");

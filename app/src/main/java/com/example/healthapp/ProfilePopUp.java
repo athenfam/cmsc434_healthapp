@@ -17,9 +17,9 @@ import androidx.annotation.Nullable;
 
 public class ProfilePopUp extends Activity {
     String name, gender;
-    int birthday, feet, goalCalorie,goalCalorieBurned;
+    int age, feet, goalCalorie,goalCalorieBurned;
     double inches, currWeight, goalWeight;
-    EditText nameInput, genderInput, birthdayInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput, goalCalorieBurnedInput;
+    EditText nameInput, genderInput, ageInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput, goalCalorieBurnedInput;
     Button submitButton;
 
     @Override
@@ -41,7 +41,7 @@ public class ProfilePopUp extends Activity {
 
         genderInput = (EditText) findViewById(R.id.gender);
         nameInput = (EditText) findViewById(R.id.name);
-        birthdayInput = (EditText) findViewById(R.id.birthday);
+        ageInput = (EditText) findViewById(R.id.age);
         feetInput = (EditText) findViewById(R.id.feet);
         inchesInput = (EditText) findViewById(R.id.inches);
         currWeightInput = (EditText) findViewById(R.id.currWeight);
@@ -62,9 +62,9 @@ public class ProfilePopUp extends Activity {
                     nameInput.setHintTextColor(getResources().getColor(R.color.red));
                     return;
                 }
-                if(birthdayInput.getText().toString().equals("")){
-                    birthdayInput.setError("Please enter you birthday");
-                    birthdayInput.setHintTextColor(getResources().getColor(R.color.red));
+                if(ageInput.getText().toString().equals("")){
+                    ageInput.setError("Please enter you age");
+                    ageInput.setHintTextColor(getResources().getColor(R.color.red));
                     return;
                 }
                 if(genderInput.getText().toString().equals("")){
@@ -88,7 +88,7 @@ public class ProfilePopUp extends Activity {
                 // Required entries
                 name = nameInput.getText().toString();
                 gender= genderInput.getText().toString();
-                birthday=Integer.valueOf(birthdayInput.getText().toString());
+                age=Integer.valueOf(ageInput.getText().toString());
                 feet=Integer.valueOf(feetInput.getText().toString());
                 currWeight=Double.valueOf(currWeightInput.getText().toString());
 
@@ -127,7 +127,7 @@ public class ProfilePopUp extends Activity {
 
                 resultIntent.putExtra("name", name);
                 resultIntent.putExtra("gender",gender);
-                resultIntent.putExtra("birthday", birthday);
+                resultIntent.putExtra("age", age);
                 resultIntent.putExtra("feet", feet);
                 resultIntent.putExtra("currWeight", currWeight);
                 resultIntent.putExtra("goalWeight", goalWeight);
