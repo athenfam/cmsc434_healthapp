@@ -23,6 +23,16 @@
             android:textColor="#000000"
             android:textSize="18dp" />
 
+        <TextView
+            android:id="@+id/genderDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:text="Gender :"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
 
         <TextView
             android:id="@+id/birthdayDisplay"
