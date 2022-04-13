@@ -27,20 +27,20 @@ import java.util.RandomAccess;
 
 public class HomeFragment extends Fragment {
     private int calories = 0;
-    private int calorieGoal = 2000;
-    private double weightGoal = 120;
-    private String name;
+    private int calorieGoal = 2500;
+    private double weightGoal = 145;
+    private String name = "John Doe";
     private int burnedCalories = 0;
-    private int calorieBurnedGoal = 500;
-    private double currWeight=0;
+    private int calorieBurnedGoal = 800;
+    private double currWeight=160;
     private boolean today = true;
+    private boolean metCalorieGoal = false;
+    private boolean metCalorieBurnedGoal = false;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        System.out.println("this happens");
         if (getArguments() != null) {
-            System.out.println("values no updated");
             this.calories = getArguments().getInt("calories");
             this.calorieGoal = getArguments().getInt("calorieGoal");
             this.weightGoal = getArguments().getDouble("goalWeight");
@@ -48,7 +48,6 @@ public class HomeFragment extends Fragment {
             this.burnedCalories = getArguments().getInt("calorieBurned");
             this.calorieBurnedGoal = getArguments().getInt("calorieBurnedGoal");
             this.currWeight=getArguments().getDouble("currWeight");
-
         }
 
 
@@ -81,7 +80,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), // <- Line changed
-                        "The favorite list would appear on clicking this icon",
+                        "Previous day's data appears",
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -120,6 +119,7 @@ public class HomeFragment extends Fragment {
         center.setText(calories+"/"+calorieGoal+"cal");
         if(percent>=100){//Highlight green if complete
             center.setTextColor(Color.GREEN);
+            metCalorieGoal = true;
         }
         ObjectAnimator animation = ObjectAnimator.ofInt(circleCalorie, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
         animation.setDuration(1500); // in milliseconds
@@ -132,6 +132,7 @@ public class HomeFragment extends Fragment {
         center2.setText(burnedCalories+"/"+calorieBurnedGoal+"cal burned");
         if(percent>=100){//Highlight green if complete
             center2.setTextColor(Color.GREEN);
+            metCalorieBurnedGoal = true;
         }
         ObjectAnimator animation2 = ObjectAnimator.ofInt(circleCalorieBurned, "progress", 0, (int) percent); // see this max value coming back here, we animate towards that value
         animation2.setDuration(1500); // in milliseconds

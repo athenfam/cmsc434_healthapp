@@ -1,17 +1,21 @@
 package com.example.healthapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
@@ -70,6 +74,7 @@ public class NutritionFragment extends Fragment {
             }
         });
 
+
     }
 
     @Override
@@ -110,21 +115,28 @@ public class NutritionFragment extends Fragment {
     private void createScrollEntry(FoodEntry entry, int entryNum){
         LinearLayout scrollable = getView().findViewById(R.id.nutritionScrollable);
         TextView entryScrollable = new TextView(getContext());
-        StringBuilder text = new StringBuilder("Meal #"+entryNum+": "+entry.foodName+"\n\t"+"Calories: "+entry.calories +"\n\t");
+        StringBuilder text = new StringBuilder("Meal #"+entryNum+": "+entry.foodName+"\n\t"+"Calories: "+entry.calories);
 
         if(entry.fat != 0)
-            text.append("Fat: " + entry.fat + " grams\n\t");
+            text.append("\n\tFat: " + entry.fat + " grams");
         if(entry.cholesterol != 0)
-            text.append("Cholesterol: "+entry.cholesterol+" grams\n\t");
+            text.append("\n\tCholesterol: "+entry.cholesterol+" grams");
         if(entry.sodium!=0)
-            text.append("Sodium: "+entry.sodium+"mg\n\t");
+            text.append("\n\tSodium: "+entry.sodium+"mg");
         if(entry.carbs!=0)
-            text.append("Carbohydrates: "+entry.carbs+" grams\n\t");
+            text.append("\n\tCarbohydrates: "+entry.carbs+" grams");
         if(entry.protein!=0)
-            text.append("Protein: "+entry.protein+" grams\n\t");
+            text.append("\n\tProtein: "+entry.protein+" grams");
 
         entryScrollable.setText(text);
-        scrollable.addView(entryScrollable);
+        entryScrollable.setPadding(10,10,10,10);
+        //scrollable.addView(entryScrollable);
+
+        CardView cardScrollable = new CardView(getContext());
+        cardScrollable.setCardBackgroundColor(Color.parseColor("#89CFF0"));
+        cardScrollable.setRadius(30);
+        cardScrollable.addView(entryScrollable);
+        scrollable.addView(cardScrollable);
     }
 
     // Display current nutrition values

@@ -1,6 +1,7 @@
 package com.example.healthapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
@@ -94,11 +96,17 @@ public class FitnessFragment extends Fragment {
         TextView entryScrollable = new TextView(getContext());
         StringBuilder text = new StringBuilder("Exercise #"+entryNum+": "+entry.exerciseName+"\n\t"+"Calories: "+entry.calories +"\n\t");
         if(!entry.comments.equals("")){
-            text.append("Comments:" + entry.comments +"\n\t");
+            text.append("Exercise Details:" + entry.comments +"\n\t");
         }
 
         entryScrollable.setText(text);
-        scrollable.addView(entryScrollable);
+        //scrollable.addView(entryScrollable);
+
+        CardView cardScrollable = new CardView(getContext());
+        cardScrollable.setCardBackgroundColor(Color.parseColor("#7FFFD4"));
+        cardScrollable.setRadius(30);
+        cardScrollable.addView(entryScrollable);
+        scrollable.addView(cardScrollable);
     }
 
     // Display current nutrition values

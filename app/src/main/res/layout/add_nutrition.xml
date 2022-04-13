@@ -23,7 +23,6 @@
             <TextView
                 android:text="Main Data (Required)"
                 android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-
                 />
 
             <TableRow

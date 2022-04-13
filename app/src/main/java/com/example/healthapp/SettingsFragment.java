@@ -23,13 +23,14 @@ public class SettingsFragment extends Fragment {
     double inches, currWeight, goalWeight, bmi;
     private long mLastClickTime = 0;
     SettingsFragment(){
-        name="Billy Bob";
+        name="John Doe";
         feet=5;
         inches=8;
-        currWeight=120;
-        goalWeight=130;
-        goalCalorie=2000;
-        goalCalorieBurned=500;
+        currWeight=160;
+        goalWeight=145;
+        goalCalorie=2500;
+        goalCalorieBurned=800;
+        birthday=01012000;
     }
 
     @Nullable
@@ -104,6 +105,20 @@ public class SettingsFragment extends Fragment {
 
         TextView goalCalorieBurnedTextView = (TextView) getView().findViewById(R.id.calorieBurnedGoalDisplay);
         goalCalorieBurnedTextView.setText("Daily Calorie Burned From Exercise: " + goalCalorieBurned + " cal");
+
+        TextView bmiTextView = (TextView) getView().findViewById(R.id.bmi);
+        bmi = (currWeight*0.453592)/Math.pow(0.0254*(feet*12+inches),2);
+        bmi = Math.round(bmi*100.0)/100.0;
+
+        if(bmi<18.5){
+            bmiTextView.setText("BMI: " + bmi+ " (underweight)");
+        } else if (bmi<24.9){
+            bmiTextView.setText("BMI: " + bmi+ " (normal weight)");
+        } else if (bmi<29.9){
+            bmiTextView.setText("BMI: " + bmi+ " (overweight)");
+        } else{
+            bmiTextView.setText("BMI: " + bmi+ " (obese)");
+        }
     }
 
     public int getCalorieGoal(){

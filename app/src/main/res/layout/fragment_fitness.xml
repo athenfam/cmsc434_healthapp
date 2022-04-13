@@ -37,7 +37,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="100dp"
             android:background="@color/white"
-            android:scrollbars="vertical">
+            android:scrollbars="vertical"
+            >
 
             <LinearLayout
                 android:id="@+id/fitnessScrollable"
@@ -48,6 +49,27 @@
 
     </LinearLayout>
 
+    <!--
+    <ImageView
+        android:id="@+id/left"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/right"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        />
+        -->
     <Button
         android:id="@+id/addExerciseData"
         android:layout_width="wrap_content"
