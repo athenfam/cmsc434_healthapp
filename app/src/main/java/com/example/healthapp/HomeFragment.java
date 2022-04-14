@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
     private boolean today = true;
     private boolean metCalorieGoal = false;
     private boolean metCalorieBurnedGoal = false;
-
+    private boolean isSetup = false;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,7 +48,8 @@ public class HomeFragment extends Fragment {
             this.name = getArguments().getString("name");
             this.burnedCalories = getArguments().getInt("calorieBurned");
             this.calorieBurnedGoal = getArguments().getInt("calorieBurnedGoal");
-            this.currWeight=getArguments().getDouble("currWeight");
+            this.currWeight = getArguments().getDouble("currWeight");
+            this.isSetup = getArguments().getBoolean("isSetup");
         }
 
 
@@ -58,47 +59,62 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // Set current date
         setDate(getView().findViewById(id.date));
 
 
         TextView greeting = (TextView) getView().findViewById(id.greeting);
-        greeting.setText("Hello "+name+"!");
+        if (isSetup){
+            // Set current date
 
+            greeting.setText("Hello "+name+"!");
+
+
+
+            //Click left
+            ImageView left = (ImageView) getView().findViewById(R.id.left);
+            left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), // <- Line changed
+                            "Previous day's data appears",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            //Click right
+            ImageView right = (ImageView) getView().findViewById(R.id.right);
+            right.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(today) {
+                        Toast.makeText(v.getContext(),
+                                "No data for the next day",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+        }else{
+            greeting.setText("Hello User!");
+            TextView defaultView = getView().findViewById(id.weightGoal);
+            defaultView.setText("Please setup your basic information in the profile page");
+
+        }
         // Set updated calorie progression
         getCalorieGoal();
 
         //Update Weight Goal progression
         getWeightGoal();
 
+        TextView quote = getView().findViewById(id.dailyQuote);
+        String[] q = getResources().getStringArray(array.dailyQuotes);
+        // Randomly picks a quote everytime the home page is selected
+        quote.setText("Daily Quote: "+q[(int)(Math.random()*q.length)]);
         //Need to figure out fragment to fragment data sharing. Right now all of the data is assigned to 4 objects based by tab.
         // Also consider how to retain saved data after an app session is finished
 
 
-        //Click left
-        ImageView left = (ImageView) getView().findViewById(R.id.left);
-        left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), // <- Line changed
-                        "Previous day's data appears",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        //Click right
-        ImageView right = (ImageView) getView().findViewById(R.id.right);
-        right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(today) {
-                    Toast.makeText(v.getContext(),
-                            "No data for the next day",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
     public void setDate (TextView view){
@@ -118,7 +134,13 @@ public class HomeFragment extends Fragment {
         ProgressBar circleCalorieBurned = (ProgressBar) getView().findViewById(id.calorie_burned_progress);
 
 
-        double percent = calories * 100 / calorieGoal;
+        double percent;
+        if(calorieGoal != 0){
+            percent = calories * 100 / calorieGoal;
+        }else{
+            percent = 0;
+        }
+
         circleCalorie.setProgress((int) percent);
 
         // Calorie consumed progress
@@ -135,7 +157,12 @@ public class HomeFragment extends Fragment {
         animation.start();
 
         // Calorie burned progress
-        percent = burnedCalories*100/calorieBurnedGoal;
+        if(burnedCalories != 0){
+            percent = burnedCalories*100/calorieBurnedGoal;
+        }else{
+            percent = 0;
+        }
+
         TextView center2 = getView().findViewById(id.home_calorie_burned);
         center2.setText(burnedCalories+"/"+calorieBurnedGoal+"cal burned");
         if(percent>=100){//Highlight green if complete
@@ -149,10 +176,7 @@ public class HomeFragment extends Fragment {
         animation2.start();
 
 
-        TextView quote = getView().findViewById(id.dailyQuote);
-        String[] q = getResources().getStringArray(array.dailyQuotes);
-        // Randomly picks a quote everytime the home page is selected
-        quote.setText("Daily Quote: "+q[(int)(Math.random()*q.length)]);
+
     }
 
     public void getWeightGoal(){

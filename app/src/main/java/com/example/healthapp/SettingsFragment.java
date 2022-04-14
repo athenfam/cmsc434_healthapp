@@ -150,4 +150,5 @@ public class SettingsFragment extends Fragment {
     public int getCalorieBurnedGoal(){return goalCalorieBurned;}
     public double getCurrWeight(){return currWeight;}
     public double getGoalWeight(){return goalWeight;}
+    public boolean getIsSetupDone(){return isSetup;}
 }
