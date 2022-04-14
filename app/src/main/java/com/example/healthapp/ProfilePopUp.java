@@ -125,7 +125,8 @@ public class ProfilePopUp extends Activity {
                 }
 
                 if(goalCalorieBurnedInput.getText().toString().equals("")){
-                    goalCalorie = getGoalCalories(feet, inches, currWeight, age);;
+                    goalCalorie = getGoalCalories(feet, inches, currWeight, age);
+                    goalCalorieBurned=500;
                 } else {
                     goalCalorieBurned=Integer.valueOf(goalCalorieBurnedInput.getText().toString());
                 }
