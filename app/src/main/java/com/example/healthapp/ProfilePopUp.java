@@ -22,6 +22,12 @@ public class ProfilePopUp extends Activity {
     EditText nameInput, genderInput, ageInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput, goalCalorieBurnedInput;
     Button submitButton;
 
+
+    public int getGoalCalories(int feet, double inches, double currWeight, int age){
+        double height = ((feet * 12) + (inches) ) * 2.54;
+        double weight = (0.453 * currWeight);
+        return (int) ((10 * weight) + (6.25 * height) - (5 * age) + 5);
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,13 +119,13 @@ public class ProfilePopUp extends Activity {
                 }
 
                 if(goalCalorieInput.getText().toString().equals("")){
-                    goalCalorie = 2000;
+                    goalCalorie = 200;
                 } else {
                     goalCalorie=Integer.valueOf(goalCalorieInput.getText().toString());
                 }
 
                 if(goalCalorieBurnedInput.getText().toString().equals("")){
-                    goalCalorie = 500;
+                    goalCalorie = getGoalCalories(feet, inches, currWeight, age);;
                 } else {
                     goalCalorieBurned=Integer.valueOf(goalCalorieBurnedInput.getText().toString());
                 }

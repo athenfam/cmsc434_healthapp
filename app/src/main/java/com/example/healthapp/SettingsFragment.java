@@ -73,13 +73,14 @@ public class SettingsFragment extends Fragment {
             currWeight = data.getDoubleExtra("currWeight",-1);
             goalWeight = data.getDoubleExtra("goalWeight",-1);
             age = data.getIntExtra("age",-1);
-            goalCalorie = data.getIntExtra("goalCalorie", 2000);
-            goalCalorieBurned = data.getIntExtra("goalCalorieBurned",500);
+            goalCalorie = data.getIntExtra("goalCalorie", 100);
+            goalCalorieBurned = data.getIntExtra("goalCalorieBurned",155);
             gender = data.getStringExtra("gender");
             isSetup = true;
             displayValues();
         }
     }
+
 
     public void displayValues() {
         Button button = (Button) getView().findViewById(R.id.changeInfo);
