@@ -17,8 +17,8 @@ import androidx.annotation.Nullable;
 
 public class ProfilePopUp extends Activity {
     String name, gender;
-    int age, feet, goalCalorie,goalCalorieBurned;
-    double inches, currWeight, goalWeight;
+    int age, feet, goalCalorie,goalCalorieBurned, inches;
+    double currWeight, goalWeight;
     EditText nameInput, genderInput, ageInput, feetInput, inchesInput, currWeightInput, goalWeightInput, goalCalorieInput, goalCalorieBurnedInput;
     Button submitButton;
 
@@ -76,6 +76,7 @@ public class ProfilePopUp extends Activity {
                     feetInput.setHintTextColor(getResources().getColor(R.color.red));
                     return;
                 }
+
                 if(currWeightInput.getText().toString().equals("")){
                     currWeightInput.setError("Please enter you current weight");
                     currWeightInput.setHintTextColor(getResources().getColor(R.color.red));
@@ -90,13 +91,14 @@ public class ProfilePopUp extends Activity {
                 gender= genderInput.getText().toString();
                 age=Integer.valueOf(ageInput.getText().toString());
                 feet=Integer.valueOf(feetInput.getText().toString());
+                inches = Integer.valueOf(inchesInput.getText().toString());
                 currWeight=Double.valueOf(currWeightInput.getText().toString());
 
                 // Optional entries
                 if(inchesInput.getText().toString().equals("")){
                     inches = 0;
                 } else {
-                    inches=Double.valueOf(inchesInput.getText().toString());
+                    inches=Integer.valueOf(inchesInput.getText().toString());
                 }
                 if(goalWeightInput.getText().toString().equals("")){
                     // Auto generated weight
@@ -129,6 +131,7 @@ public class ProfilePopUp extends Activity {
                 resultIntent.putExtra("gender",gender);
                 resultIntent.putExtra("age", age);
                 resultIntent.putExtra("feet", feet);
+                resultIntent.putExtra("inches", inches);
                 resultIntent.putExtra("currWeight", currWeight);
                 resultIntent.putExtra("goalWeight", goalWeight);
                 resultIntent.putExtra("goalCalorie", goalCalorie);
