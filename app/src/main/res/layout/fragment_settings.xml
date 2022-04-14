@@ -104,6 +104,14 @@
             android:textColor="#000000"
             android:textSize="18dp" />
 
+        <TextView
+            android:id="@+id/initialSetup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Setup Your Information!"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
     </LinearLayout>
 
     <Button
@@ -114,7 +122,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
         android:backgroundTint="#f0ead6"
-        android:textColor="#000000"
-        android:text="Change Personal Info" />
+        android:text="Change Personal Info"
+        android:textColor="#000000" />
 
 </RelativeLayout>

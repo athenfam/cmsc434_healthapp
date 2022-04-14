@@ -23,16 +23,9 @@ public class SettingsFragment extends Fragment {
     String gender;
     double inches, currWeight, goalWeight, bmi;
     private long mLastClickTime = 0;
+    Boolean isSetup = false;
     SettingsFragment(){
-        name="John Doe";
-        feet=5;
-        inches=8;
-        gender= "male";
-        currWeight=160;
-        goalWeight=145;
-        goalCalorie=2500;
-        goalCalorieBurned=800;
-        age=21;
+
     }
 
     @Nullable
@@ -76,54 +69,77 @@ public class SettingsFragment extends Fragment {
         if(requestCode == 1){
             name = data.getStringExtra("name");
             feet = data.getIntExtra("feet",-1);
-            inches = data.getDoubleExtra("inches",0);
+            inches = data.getIntExtra("inches",0);
             currWeight = data.getDoubleExtra("currWeight",-1);
             goalWeight = data.getDoubleExtra("goalWeight",-1);
             age = data.getIntExtra("age",-1);
             goalCalorie = data.getIntExtra("goalCalorie", 2000);
             goalCalorieBurned = data.getIntExtra("goalCalorieBurned",500);
             gender = data.getStringExtra("gender");
+            isSetup = true;
             displayValues();
         }
     }
 
     public void displayValues() {
+        Button button = (Button) getView().findViewById(R.id.changeInfo);
+        if (isSetup){
+            button.setText("CHANGE PERSONAL INFO");
+        }else{
+            button.setText("SETUP");
+        }
         TextView nameTextView = (TextView) getView().findViewById(R.id.nameDisplay);
-        nameTextView.setText("Name: " + name);
-
         TextView feetTextView = (TextView) getView().findViewById(R.id.heightDisplay);
-        feetTextView.setText("Height: " + feet + " feet " + inches + " inches");
-
         TextView genderTextView = (TextView) getView().findViewById(R.id.genderDisplay);
-        genderTextView.setText("Gender: "+gender);
-
         TextView ageTextView = (TextView) getView().findViewById(R.id.ageDisplay);
-        ageTextView.setText("Age: " + age);
-
         TextView currWeightTextView = (TextView) getView().findViewById(R.id.currWeightDisplay);
-        currWeightTextView.setText("Weight: " + currWeight + " lbs");
-
         TextView goalWeightTextView = (TextView) getView().findViewById(R.id.goalWeightDisplay);
-        goalWeightTextView.setText("Goal Weight: " + goalWeight + " lbs");
-
         TextView goalCalorieTextView = (TextView) getView().findViewById(R.id.calorieGoalDisplay);
-        goalCalorieTextView.setText("Daily Calorie Intake Goal: " + goalCalorie + " cal");
-
         TextView goalCalorieBurnedTextView = (TextView) getView().findViewById(R.id.calorieBurnedGoalDisplay);
-        goalCalorieBurnedTextView.setText("Daily Calorie Burned From Exercise: " + goalCalorieBurned + " cal");
-
         TextView bmiTextView = (TextView) getView().findViewById(R.id.bmi);
+        TextView initialSettings = (TextView) getView().findViewById(R.id.initialSetup);
         bmi = (currWeight*0.453592)/Math.pow(0.0254*(feet*12+inches),2);
         bmi = Math.round(bmi*100.0)/100.0;
 
-        if(bmi<18.5){
-            bmiTextView.setText("BMI: " + bmi+ " (underweight)");
-        } else if (bmi<24.9){
-            bmiTextView.setText("BMI: " + bmi+ " (normal weight)");
-        } else if (bmi<29.9){
-            bmiTextView.setText("BMI: " + bmi+ " (overweight)");
-        } else{
-            bmiTextView.setText("BMI: " + bmi+ " (obese)");
+        if (isSetup){
+            nameTextView.setText("Name: " + name);
+            feetTextView.setText("Height: " + feet + " feet " + inches + " inches");
+            genderTextView.setText("Gender: "+gender);
+            ageTextView.setText("Age: " + age);
+            currWeightTextView.setText("Weight: " + currWeight + " lbs");
+            goalWeightTextView.setText("Goal Weight: " + goalWeight + " lbs");
+            goalCalorieTextView.setText("Daily Calorie Intake Goal: " + goalCalorie + " cal");
+            goalCalorieBurnedTextView.setText("Daily Calorie Burned From Exercise: " + goalCalorieBurned + " cal");
+            if(bmi<18.5){
+                bmiTextView.setText("BMI: " + bmi+ " (underweight)");
+            } else if (bmi<24.9){
+                bmiTextView.setText("BMI: " + bmi+ " (normal weight)");
+            } else if (bmi<29.9){
+                bmiTextView.setText("BMI: " + bmi+ " (overweight)");
+            } else{
+                bmiTextView.setText("BMI: " + bmi+ " (obese)");
+            }
+            nameTextView.setVisibility(View.VISIBLE);
+            feetTextView.setVisibility(View.VISIBLE);
+            genderTextView.setVisibility(View.VISIBLE);
+            ageTextView.setVisibility(View.VISIBLE);
+            currWeightTextView.setVisibility(View.VISIBLE);
+            goalWeightTextView.setVisibility(View.VISIBLE);
+            goalCalorieTextView.setVisibility(View.VISIBLE);
+            goalCalorieBurnedTextView.setVisibility(View.VISIBLE);
+            bmiTextView.setVisibility(View.VISIBLE);
+            initialSettings.setVisibility(View.GONE);
+        }else{
+            nameTextView.setVisibility(View.GONE);
+            feetTextView.setVisibility(View.GONE);
+            genderTextView.setVisibility(View.GONE);
+            ageTextView.setVisibility(View.GONE);
+            currWeightTextView.setVisibility(View.GONE);
+            goalWeightTextView.setVisibility(View.GONE);
+            goalCalorieTextView.setVisibility(View.GONE);
+            goalCalorieBurnedTextView.setVisibility(View.GONE);
+            bmiTextView.setVisibility(View.GONE);
+            initialSettings.setVisibility(View.VISIBLE);
         }
     }
 
