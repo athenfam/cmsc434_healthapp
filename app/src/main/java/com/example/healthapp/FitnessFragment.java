@@ -106,7 +106,7 @@ public class FitnessFragment extends Fragment {
 
         entryScrollable.setText(text);
         entryScrollable.setPadding(10,10,10,10);
-        entryScrollable.setTextColor(Color.BLACK);
+        entryScrollable.setTextColor(Color.WHITE);
 
         //scrollable.addView(entryScrollable);
 
