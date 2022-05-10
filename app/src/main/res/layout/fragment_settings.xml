@@ -108,9 +108,9 @@
             android:id="@+id/initialSetup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Please Setup Your Information!"
+            android:text="\n\n\n\nPlease Setup Your Profile!\n\nIf you are unsure about your health goals, leave the field blank and we will calculate recommended health goals for you!"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textSize="21sp" />
 
     </LinearLayout>
 
