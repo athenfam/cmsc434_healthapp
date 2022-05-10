@@ -35,7 +35,8 @@
             android:layout_marginTop="5dp"
             android:text="Total Fat Consumed :"
             android:textColor="#000000"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/totalCholesterolConsumed"
@@ -44,7 +45,8 @@
             android:layout_marginTop="5dp"
             android:text="Total Cholesterol Consumed :"
             android:textColor="#000000"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/totalSodiumConsumed"
@@ -53,7 +55,8 @@
             android:layout_marginTop="5dp"
             android:text="Total Sodium Consumed :"
             android:textColor="#000000"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/totalCarbohydratesConsumed"
@@ -62,7 +65,8 @@
             android:layout_marginTop="5dp"
             android:text="Total Carbohydrates Consumed :"
             android:textColor="#000000"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/totalProteinConsumed"
@@ -71,7 +75,8 @@
             android:layout_marginTop="5dp"
             android:text="Total Protein Consumed :"
             android:textColor="#000000"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone"/>
 
 
         <TextView
