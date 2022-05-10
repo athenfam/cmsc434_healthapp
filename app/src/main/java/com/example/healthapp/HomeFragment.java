@@ -183,7 +183,8 @@ public class HomeFragment extends Fragment {
 
     public void getWeightGoal(){
         TextView view = getView().findViewById(id.weightGoal);
-        view.setText(df.format(currWeight) +" lbs.");
+
+        view.setText("Current: " + df.format(currWeight) +" lbs. Goal: "+df.format(weightGoal)+" lbs.");
     }
 
     private static final DecimalFormat df = new DecimalFormat("0.00");

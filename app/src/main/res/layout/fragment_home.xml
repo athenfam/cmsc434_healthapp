@@ -38,7 +38,7 @@
             android:textColor="#000000"
             android:textAlignment="center"
 
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -74,7 +74,7 @@
         android:id="@+id/calorie_burned_progress"
         android:layout_width="315dp"
         android:layout_height="315dp"
-
+        android:layout_marginTop="100dp"
         android:layout_centerInParent="true"
         android:indeterminateOnly="false"
         android:max="100"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="45dp"
         android:text="0cal Consumed"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="15dp"
         android:text="0cal Burned"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -129,14 +129,16 @@
         android:layout_alignTop="@id/home_calorie"
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
+        android:layout_marginTop="3dp"
         android:layout_toStartOf="@+id/home_calorie"
         android:src="@drawable/ic_baseline_check_circle_outline_24"
-        android:visibility="invisible"
-        />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/checkmark2"
         android:layout_width="25dp"
+        android:layout_marginTop="3dp"
+
         android:layout_height="25dp"
         android:layout_alignTop="@id/home_calorie_burned"
         android:layout_centerVertical="true"
@@ -144,5 +146,15 @@
         android:layout_toStartOf="@+id/home_calorie_burned"
         android:src="@drawable/ic_baseline_check_circle_outline_24"
         android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_help_24"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        />
 
 </RelativeLayout>
