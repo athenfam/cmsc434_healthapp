@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7393B3">
+    android:background="#fff">
 
 
     <LinearLayout
@@ -121,8 +121,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:backgroundTint="#f0ead6"
+        android:backgroundTint="#228b22"
         android:text="Change Personal Info"
-        android:textColor="#000000" />
+        android:textColor="#fff" />
 
 </RelativeLayout>

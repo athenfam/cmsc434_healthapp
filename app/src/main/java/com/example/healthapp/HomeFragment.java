@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,7 +67,7 @@ public class HomeFragment extends Fragment {
         if (isSetup){
             // Set current date
 
-            greeting.setText("Hello "+name+"!");
+            greeting.setText("Hi "+name+"!");
 
 
 
@@ -106,13 +107,14 @@ public class HomeFragment extends Fragment {
         //Update Weight Goal progression
         getWeightGoal();
 
+        /*
         TextView quote = getView().findViewById(id.dailyQuote);
         String[] q = getResources().getStringArray(array.dailyQuotes);
         // Randomly picks a quote everytime the home page is selected
         quote.setText("Daily Quote: "+q[(int)(Math.random()*q.length)]);
         //Need to figure out fragment to fragment data sharing. Right now all of the data is assigned to 4 objects based by tab.
         // Also consider how to retain saved data after an app session is finished
-
+        */
 
 
     }
@@ -181,6 +183,11 @@ public class HomeFragment extends Fragment {
 
     public void getWeightGoal(){
         TextView view = getView().findViewById(id.weightGoal);
-        view.setText("You are "+Math.abs(currWeight-weightGoal)+"lbs from your weight goal of "+weightGoal+"lbs!");
+        view.setText(df.format(currWeight) +" lbs.");
     }
+
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+
+
 }
+

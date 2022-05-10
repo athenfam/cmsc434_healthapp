@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#EFD3D7">
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,21 +17,27 @@
             android:layout_height="wrap_content"
             android:textSize="25sp" />
 
+
         <TextView
             android:id="@+id/greeting"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello User!"
             android:textColor="#000000"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAlignment="center"
+            />
+
 
         <TextView
             android:id="@+id/weightGoal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Please Input User Data on the Profile Page"
             android:textColor="#000000"
+            android:textAlignment="center"
+
             android:textSize="25sp" />
 
     </LinearLayout>
@@ -51,13 +57,13 @@
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="0dp"
         android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
 
     <ProgressBar
         android:id="@+id/calorie_progress"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_centerInParent="true"
         android:indeterminateOnly="false"
         android:max="100"
@@ -66,10 +72,10 @@
 
     <ProgressBar
         android:id="@+id/calorie_burned_progress"
-        android:layout_width="183dp"
-        android:layout_height="183dp"
-        android:layout_centerInParent="true"
+        android:layout_width="315dp"
+        android:layout_height="315dp"
 
+        android:layout_centerInParent="true"
         android:indeterminateOnly="false"
         android:max="100"
         android:progress="0"
@@ -81,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="125dp"
+        android:layout_marginBottom="70dp"
         android:text="0cal Consumed"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -91,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="40dp"
         android:text="0cal Burned"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -104,6 +110,7 @@
         android:text="Date Here"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+    <!--
     <TextView
         android:id="@+id/dailyQuote"
         android:layout_width="wrap_content"
@@ -114,7 +121,7 @@
         android:text="Daily Quote: Let's get your exercise on!"
         android:textColor="#000000"
         android:textSize="25sp" />
-
+    -->
     <ImageView
         android:id="@+id/checkmark1"
         android:layout_width="25dp"

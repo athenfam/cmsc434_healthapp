@@ -18,7 +18,10 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,6 +50,7 @@ public class NutritionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setDate(getView().findViewById(R.id.date2));
 
         // Display total nutrition values
         displayValues();
@@ -134,7 +138,7 @@ public class NutritionFragment extends Fragment {
         //scrollable.addView(entryScrollable);
 
         CardView cardScrollable = new CardView(getContext());
-        cardScrollable.setCardBackgroundColor(Color.parseColor("#89CFF0"));
+        cardScrollable.setCardBackgroundColor(Color.parseColor("#d2042d"));
         cardScrollable.setRadius(30);
         cardScrollable.addView(entryScrollable);
         scrollable.addView(cardScrollable);
@@ -161,7 +165,13 @@ public class NutritionFragment extends Fragment {
         totalCholesterolConsumedTextView.setText("Total Cholesterol Consumed: " + totalValues.get("cholesterol")+" mg");
     }
 
+    public void setDate (TextView view){
+        Date today = Calendar.getInstance().getTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d yyyy");
+        String date = formatter.format(today);
+        view.setText(date);
 
+    }
     public int getNutritionValue(String value){
         return totalValues.get(value);
     }

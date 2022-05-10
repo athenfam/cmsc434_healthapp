@@ -16,7 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,6 +43,8 @@ public class FitnessFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         // Display total nutrition values
         displayValues();
+
+        setDate(getView().findViewById(R.id.date1));
 
         // Display scrollable meal entries
         // See if there is a way to make scrollable text changes permanent between screen transitions,
@@ -106,10 +111,18 @@ public class FitnessFragment extends Fragment {
         //scrollable.addView(entryScrollable);
 
         CardView cardScrollable = new CardView(getContext());
-        cardScrollable.setCardBackgroundColor(Color.parseColor("#7FFFD4"));
+        cardScrollable.setCardBackgroundColor(Color.parseColor("#4169e1"));
         cardScrollable.setRadius(30);
         cardScrollable.addView(entryScrollable);
         scrollable.addView(cardScrollable);
+    }
+
+    public void setDate (TextView view){
+        Date today = Calendar.getInstance().getTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d yyyy");
+        String date = formatter.format(today);
+        view.setText(date);
+
     }
 
     // Display current nutrition values

@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#89CFF0">
+    android:background="#fff">
 
 
     <LinearLayout
@@ -13,6 +13,11 @@
         android:layout_marginRight="25dp"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/date2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/totalCaloriesConsumed"
@@ -69,7 +74,6 @@
             android:textSize="18dp" />
 
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,10 +89,9 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="100dp"
-            android:background="@color/white"
+            android:background="@color/grey"
             android:paddingHorizontal="5dp"
-            android:scrollbars="vertical"
-            >
+            android:scrollbars="vertical">
 
             <LinearLayout
                 android:id="@+id/nutritionScrollable"
@@ -130,7 +133,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:backgroundTint="#F28C28"
+        android:backgroundTint="#d2042d"
         android:text="Add Meal Data" />
 
 
